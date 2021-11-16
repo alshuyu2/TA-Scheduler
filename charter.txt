@@ -1,0 +1,45 @@
+<group name: >
+
+
+1. Availability for meeting expectations
+  -meet in person after lab
+  -friday: 4:30pm
+  -sunday: 12:30pm
+  
+2. Response time to communication expectations
+  <24hr
+  
+3. Definition of done: when is a task complete? (hint: "I'm done with that but I didn't check it in to github" is not done.)
+  -Passing tests
+  -Pull requests on github
+  -Each member fulfill their specific roles and get reviewed by other memebers
+
+4. Scrum meeting format/frequency and distribution of documentation tasks (meeting minutes, updating task board)
+-Hybrid (online-in-person)
+-3 days a week (2 online, one in-person)
+-15 minutes maximum
+-come to the meeting with 3 qs in mind 
+  -what did we do 
+  -what are we gonna do 
+  -any problems??
+  
+5. Procedure for adopting policies (e.g. code style, code check-in steps, documentation updates)
+   if you adopt such a policy during the initial meeting, put it here
+   -CTRL+A to highlight all and then CTRL+ALT+L for auto spacing for every class
+   -use self and cls for everything
+   -have descriptive comments of the functions and what they do so everyones on the same page
+   -write tests first 
+   
+6. Procedure for handling a member who is not meeting expectations
+must include at least 3 actions before involving the instructor
+  -Talk to them and bring up the issue 
+  -Give them a time limit on what they have to get done
+  -Have open communitation 
+  -last Case: talk to the TA
+  
+
+7. Signatures: each member must sign their name by typing their name at the bottom of the document.
+Mohammed Mohsen Al-Shuyukh
+Vince
+Adriana
+Zack
