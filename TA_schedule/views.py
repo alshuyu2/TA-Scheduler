@@ -4,7 +4,7 @@ from django.views import View
 
 class Home(View):
     def get(self, request):
-        return render(request, "home.html", {'title': 'Home'})
+        return render(request, "home.html")
 
-    # def post(self,request):
-    #     return render(request,"home.html",{"days":Days.choices,"sections":Sections.choices})
+    def post(self, request):
+        return render(request, "login.html", {'title': 'Login'})
