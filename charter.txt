@@ -6,6 +6,7 @@
   -friday: 4:30pm
   -sunday: 11:30pm
   
+  
 2. Response time to communication expectations
   <24hr
   
