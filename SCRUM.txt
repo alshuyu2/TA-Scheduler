@@ -6,8 +6,13 @@ What I'm stuck on: Nothing is currently holding me up
 
 Vince:
 What I've done since last time:
+  -Updated trello
+  -Set up django project in github
 What I'm doing for next time:
+  -unit tests for instructor
+  -unit tests for lab
 What I'm stuck on:
+  -nothing so far
 
 Moh:
 What I've done since last time:
