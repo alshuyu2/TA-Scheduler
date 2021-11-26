@@ -14,7 +14,8 @@ What I've done since last time:
 What I'm doing for next time:
 What I'm stuck on:
 
-Zack: set up trello workspace and board and invited group memebers, wrote 4 PBIs into the backlog, integrated our github project into my pycharm
+Zack: 
+What I've done since last time: set up trello workspace and board and invited group memebers, wrote 4 PBIs into the backlog, integrated our github project into my pycharm
 What I'm doing for next time: Doing unit tests with Moh for courses 
 What I'm stuck on: Nothing right now
 
