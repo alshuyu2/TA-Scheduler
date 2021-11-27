@@ -1,6 +1,6 @@
 import django
 django.setup()
-from TA_schedule.models import Classes, ClassEnrollment, Lab, MyUser
+from TA_schedule.models import Classes, ClassEnrollment, Lab
 from TA_schedule.roles import Role
 import unittest
 from datetime import datetime
