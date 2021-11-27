@@ -1,5 +1,9 @@
 11/23/21------------------------------------------------------------------------------------------------------------------------------------------------------------
 Time: 4:45pm-5:00pm
+Attendance: All
+Tasks completed: Trello board set up(Adriana), Pycharm project set up(Vince), PBIs added to backlog(All), and sprint 1 outlined(Abdullah)
+Tasks generated: Sprint 1 tasks(All)
+
 -Adriana:
 What I've done since last time: Created a new final UML document for us to follow, set up trello workspace and board and invited group memebers, wrote 3 PBIs into the backlog, integrated our github project into my pycharm
 What I'm doing for next time: Writing TA unit tests
@@ -27,6 +31,10 @@ What I'm stuck on:
 
 11/26/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
 Time: 4:30pm-4:47pm
+Attendance: All
+Tasks completed: Create role enum/dict (Vince)
+Tasks generated: refine database design (Vince, Moh, Adriana), complete models (All)
+
 -Adriana:
 What I've done since last time: Re-read testing and models documentation and reviewed Django tutorials online. 
 What I'm doing for next time: Need to fix the issues with my pycharm project since github is behaving oddly with it. Plan on group work tomorrow to improve models and refine       database design so that we can write our unit tests accurately. Plan to finish unit tests for the TA this weekend
@@ -55,6 +63,10 @@ What I'm stuck on:
 11/28/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
  *Copy and paste this template for the next meeting before filling in for an easier life
 Time: 
+Attendance:
+Tasks completed:
+Tasks generated:
+
 -Adriana:
 What I've done since last time:
 What I'm doing for next time:
