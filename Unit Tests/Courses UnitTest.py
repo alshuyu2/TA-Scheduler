@@ -48,7 +48,12 @@ class MyTestCase(unittest.TestCase):
           #a = getTime(User, Date)
           #b = getLocation(User, Date)
 
+    def getInstr(self):
+        return self.instr
+        # if the instructor name is null, return false(?)
 
-    def test_Good_getTimeAndLoc(self):
-        with self.assertRaises(TypeError, msg="Time or Location is null"):
-          #a = meeting(Null, Null)
+    def setInstr(self, instr):
+        self.instr = instr
+        #Check if it's false, if not, then do nothing since it returns a void method
+        self.assertFalse(self.instr, instr, msg="The names are not the same")
+
