@@ -1,8 +1,9 @@
-import unittest
-from datetime import datetime
-
+import django
+django.setup()
 from TA_schedule.models import Classes, ClassEnrollment, Lab, MyUser
 from TA_schedule.roles import Role
+import unittest
+from datetime import datetime
 
 
 # dt = datetime(year, month, day, hour, minute, second, microsecond)
@@ -122,7 +123,7 @@ class TestRemoveCourse(unittest.TestCase):
 
     def test_remove_empty_course(self):
         self.instr2 = Instructor()
-        with self.assertRaises(ValueError,msg='list empty'):
+        with self.assertRaises(ValueError, msg='list empty'):
             self.instr2.removeCourse(Courses('Bio'))
 
     def test_remove_course_not_present(self):
