@@ -1,6 +1,8 @@
+import django
+django.setup()
 import unittest
 from datetime import datetime
-from TA_schedule.models import Classes, LabEnrollment
+from TA_schedule.models import Class, Lab
 
 
 # TODO only here to get rid of errors

@@ -7,12 +7,15 @@ class PersonalInfo(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     phone = models.CharField(max_length=10)
     role = models.CharField(max_length=10, choices=Role.choices, default=Role.ADMIN)
+    address = models.CharField(max_length=25)
 
 
 class Class(models.Model):
     name = models.CharField(max_length=20)
     instr_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
+    def __str__(self):
+        return User.username
 
 class TAtoClass(models.Model):
     class_name = models.ForeignKey(Class, on_delete=models.SET_NULL, null=True)
@@ -26,4 +29,4 @@ class Lab(models.Model):
 
 class ClassToLab(models.Model):
     class_id = models.ForeignKey(Class, on_delete=models.SET_NULL, null=True)
-    lab_id = models.ForeignKey(Lab, on_delete=models.CASCADE, null=True)
+    lab_id = models.ForeignKey(Lab, on_delete=models.SET_NULL, null=True)

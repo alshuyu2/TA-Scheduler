@@ -1,6 +1,7 @@
 import django
 django.setup()
-from TA_schedule.models import Classes, ClassEnrollment, Lab
+from django.contrib.auth.models import User
+from TA_schedule.models import Class, Lab, TAtoClass, ClassToLab, PersonalInfo
 from TA_schedule.roles import Role
 import unittest
 from datetime import datetime
@@ -19,7 +20,7 @@ class Instructor:
         self.address = address
         self.courses = courses
         self.officeHours = officeHours
-        MyUser().save()
+
 
 
 class Courses:
@@ -35,7 +36,7 @@ class TestInit(unittest.TestCase):
         self.dt = datetime.strptime("12:30 15/06/2021", "%H:%M %d/%m/%Y")
         self.instr = Instructor()
         self.course_list = [Courses(instr=self.instr.name), Courses(instr=self.instr.name)]
-        self.instr2 = Instructor(name='John Doe', email='crazycookie@gmail.com', phone='4141112222',
+        self.instr2 = Instructor(name='John Doe', email='wildmudkip@gmail.com', phone='4141112222',
                                  address='South street', courses=self.course_list,
                                  officeHours=self.dt)
 
@@ -85,14 +86,14 @@ class TestGetCourses(unittest.TestCase):
         self.course_list = [Courses('Bio'), Courses('English'), Courses('German')]
         self.instr = Instructor(name='John Johnathon')
         self.instr2 = Instructor(courses=self.course_list)
-        ClassEnrollment(user_id=MyUser(name='John Johnathon', password='password', role=Role.INSTRUCTOR),
-                        class_id=Classes(name='Bio 101', lab_id=Lab(name='903'))).save()
+        self.user = User(first_name='John', last_name='Doe', email='wildmudkip@gmail.com').save()
+        PersonalInfo(user_id=self.user, phone='4141112222', role=Role.INSTRUCTOR, address='South street').save()
 
     def test_get_course(self):
         self.assertEqual(self.instr2.courses, self.instr2.getCourses())
 
     def test_get_course_db(self):
-        db_courses = list(ClassEnrollment.objects.filter(user_id='John Johnathon').values())
+        db_courses = list(PersonalInfo.objects.filter(user_id='John Johnathon').values())
         self.assertEqual(self.instr2.getCourses(), db_courses)
 
 
@@ -100,16 +101,18 @@ class TestAddCourse(unittest.TestCase):
     def setUp(self):
         self.course_list = self.course_list = [Courses('Bio'), Courses('English'), Courses('German')]
         self.instr = Instructor(name='Barry')
-        self.a = ClassEnrollment(user_id=MyUser(name='Barry', password='password', role=Role.INSTRUCTOR),
-                                 class_id=Classes(name='Bio 101', lab_id=Lab(name='903'))).save()
+        Class(name='Bio', instr_id=User(username=self.instr.name)).save()
+        # self.b = TAtoClass(Class(name='Bio'))
+        # self.a = PersonalInfo(user_id=User(name='Barry', password='password', role=Role.INSTRUCTOR),
+        #                          class_id=Classes(name='Bio 101', lab_id=Lab(name='903'))).save()
 
     def test_empty_course_add(self):
         self.instr.addCourse(Courses())
-        self.assertEqual(1, len(list(ClassEnrollment.objects.filter(user_id='Bary'))))
+        self.assertEqual(1, len(list(Class.objects.filter(instr_id=self.instr.name))))
 
     def test_course_add(self):
         self.instr.addCourse(Courses(name='Bio'))
-        self.assertListEqual(self.instr.courses, list(ClassEnrollment.objects.filter(user_id='Bary'))
+        self.assertListEqual(self.instr.courses, list(Class.objects.filter(user_id=self.instr))
                              .values_list(class_id__name='Bio'))
 
 
@@ -118,8 +121,8 @@ class TestRemoveCourse(unittest.TestCase):
     def setUp(self):
         self.course_list = self.course_list = [Courses('Bio'), Courses('English'), Courses('German')]
         self.instr = Instructor(name='Greg', courses=self.course_list)
-        self.a = ClassEnrollment(user_id=MyUser(name='Greg', password='password', role=Role.INSTRUCTOR),
-                                 class_id=Classes(name='Bio 101', lab_id=Lab(name='903'))).save()
+        for i in self.course_list:
+            Class(name=i, instr_id=User(username=self.instr.name)).save()
 
     def test_remove_empty_course(self):
         self.instr2 = Instructor()
@@ -136,4 +139,4 @@ class TestRemoveCourse(unittest.TestCase):
 
     def test_remove_valid_db(self):
         self.instr.removeCourse(Courses('Bio'))
-        self.assertListEqual(self.instr.courses, list(ClassEnrollment.objects.filter(user_id='Greg')))
+        self.assertListEqual(self.instr.courses, list(Class.objects.filter(user_id=self.instr)))
