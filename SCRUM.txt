@@ -15,9 +15,9 @@ What I'm stuck on:
   -nothing so far
 
 Moh:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Set up the trello board and getting used to Pycharm 
+What I'm doing for next time: Working on Unittests for the course class
+What I'm stuck on: Nothing at the moment.
 
 Zack:
 What I've done since last time: got set up on trello board, wrote some PBIs into the backlog, integrated our github project into my pycharm
@@ -46,9 +46,9 @@ What I'm stuck on:
   -how to import models.py into unit tests without getting an error
 
 Moh:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Assigned to work on the course unittests 
+What I'm doing for next time: Continuing to work on the course unittests
+What I'm stuck on: Checking if our unittests methods were correct or not
 
 Zack:
 What I've done since last time: Did work with moe on courses unittests 
