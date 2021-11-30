@@ -8,6 +8,7 @@ class PersonalInfo(models.Model):
     phone = models.CharField(max_length=10)
     role = models.CharField(max_length=10, choices=Role.choices, default=Role.ADMIN)
     address = models.CharField(max_length=25)
+    office_hours = models.CharField(max_length=50)
 
 
 class Class(models.Model):

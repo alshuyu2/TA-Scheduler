@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block navbar %}
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary flex-nowrap" > <!--style="background-color: #e3f2fd"; -->
+        <span class="navbar-brand w-100">TA scheduler</span>
+        <!-- Navbar content -->
+        <div class="navbar-collapse  justify-content-end" id="dashboard">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login/">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout/">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+{% endblock navbar %}
+{% block content %}
+    <div class="content-section">
+        <form action="/dashboard/" method = "POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Logged out</legend>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Login</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
