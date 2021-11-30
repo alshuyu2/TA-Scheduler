@@ -20,9 +20,9 @@ What I'm doing for next time:
 What I'm stuck on:
 
 Zack:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: got set up on trello board, wrote some PBIs into the backlog, integrated our github project into my pycharm
+What I'm doing for next time: Working on course Unittest
+What I'm stuck on: Nothing so far
 
 Abdullah:
 What I've done since last time:
@@ -32,9 +32,9 @@ What I'm stuck on:
 11/26/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
  *Copy and paste this template for the next meeting before filling in for an easier life
 Adriana:
-What I've done since last time:
+What I've done since last time: 
 What I'm doing for next time:
-What I'm stuck on:
+What I'm stuck on: 
 
 Vince:
 What I've done since last time: 
@@ -51,9 +51,9 @@ What I'm doing for next time:
 What I'm stuck on:
 
 Zack:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Did work with moe on courses unittests 
+What I'm doing for next time:  Finish the unittests
+What I'm stuck on: How to create a set up function for my unittests 
 
 Abdullah:
 What I've done since last time:
