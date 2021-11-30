@@ -4,11 +4,11 @@ from .roles import Role
 
 
 class PersonalInfo(models.Model):
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user_id = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     phone = models.CharField(max_length=10)
     role = models.CharField(max_length=10, choices=Role.choices, default=Role.ADMIN)
-    address = models.CharField(max_length=25)
-    office_hours = models.CharField(max_length=50)
+    address = models.CharField(max_length=25, default='')
+    office_hours = models.CharField(max_length=50, default='')
 
 
 class Class(models.Model):
@@ -17,6 +17,7 @@ class Class(models.Model):
 
     def __str__(self):
         return User.username
+
 
 class TAtoClass(models.Model):
     class_name = models.ForeignKey(Class, on_delete=models.SET_NULL, null=True)

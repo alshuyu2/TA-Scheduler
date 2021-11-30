@@ -1,5 +1,11 @@
 from MeetTimeLocation import MeetTimeLocation
+from datetime import datetime
 
+class Course:
+    pass
+
+class TA:
+    pass
 
 class Lab(MeetTimeLocation):
 
@@ -18,6 +24,8 @@ class Lab(MeetTimeLocation):
         return self.meet_time
 
     def set_meet_time(self, other):
+        if not isinstance(other, datetime):
+            raise TypeError('Must be datetime object')
         self.meet_time = other
         return self.meet_time
 
@@ -25,10 +33,16 @@ class Lab(MeetTimeLocation):
         return self.loc
 
     def set_loc(self, other):
+        if not isinstance(other, str):
+            raise TypeError('Must be str')
         self.loc = other
         return self.loc
 
     # non interface methods
+    def set_course(self, course):
+        if not isinstance(course, Course):
+            raise TypeError('Must be course object')
+        self.course = course
 
     def get_course(self):
         return self.course
@@ -37,5 +51,7 @@ class Lab(MeetTimeLocation):
         return self.ta
 
     def set_ta(self, other):
+        if not isinstance(other, TA):
+            raise TypeError('Must be TA object')
         self.ta = other
         return self.ta
