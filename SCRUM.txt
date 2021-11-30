@@ -88,3 +88,9 @@ What I'm doing for next time:
 What I'm stuck on:
 
 11/30/21----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Moh:
+What I've done since last time: Finished the Unittests with Zach
+What I'm doing for next time: Working on the course and Instructor class
+What I'm stuck on: Making sure every method is working and double checking
