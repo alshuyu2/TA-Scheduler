@@ -1,6 +1,8 @@
 import unittest
 from datetime import datetime
+import django
 from TA_schedule.models import Class, Lab
+
 
 class Courses:
     # tas and labs are lists
