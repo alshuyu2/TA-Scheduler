@@ -1,12 +1,12 @@
 import course
-
+from datetime import datetime
 class Instructor(object):
     def __init__(self, name = None, email = None, phone = None, address = "", officehours = None, courses= [], labs= []):
         self.name = name
         self.email = email
         self.phone = phone
         self.address = address
-        self.officehours = officehours
+        self.meetTime = officehours
         self.courses = courses
         self.labs = labs
 
@@ -29,10 +29,14 @@ class Instructor(object):
         return self.phone
 
     def setOfficeHours(self, officeHours):
-        self.officehours = officeHours
+        if not isinstance(officeHours, datetime):
+            raise TypeError("It's not of type time object")
+
+
+        self.meetTime = officeHours
 
     def getOfficeHours(self):
-        return self.officehours
+        return self.meetTime
 
     def getContactInfo(self):
         return "Email:" + self.getEmail() + "\nPhone Number:" + self.getPhone() + "\nOffice Hours:" + self.getOfficeHours()
