@@ -1,7 +1,9 @@
 import course
 from datetime import datetime
+
+
 class Instructor(object):
-    def __init__(self, name = None, email = None, phone = None, address = "", officehours = None, courses= [], labs= []):
+    def __init__(self, name=None, email=None, phone=None, address="", officehours=None, courses=[], labs=[]):
         self.name = name
         self.email = email
         self.phone = phone
@@ -32,7 +34,6 @@ class Instructor(object):
         if not isinstance(officeHours, datetime):
             raise TypeError("It's not of type time object")
 
-
         self.meetTime = officeHours
 
     def getOfficeHours(self):
@@ -50,12 +51,14 @@ class Instructor(object):
     def addCourse(self, courseAdd):
         if not isinstance(courseAdd, course):
             raise TypeError("The parameter is not of object course")
+        # check if the course is already there
 
-       #check if the course is already there
-#        if courseAdd in self.courses:
- #           raise a specific error(?)
+        if courseAdd in self.courses:
+            raise Exception("The course is already assigned to the instructor")
+            pass
 
         self.courses.append(courseAdd)
+
 
     def getMyCourses(self):
         return self.courses
