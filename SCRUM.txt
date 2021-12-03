@@ -6,23 +6,18 @@ What I'm stuck on: Nothing is currently holding me up
 
 Vince:
 What I've done since last time:
-  -Updated trello
-  -Set up django project in github
 What I'm doing for next time:
-  -unit tests for instructor
-  -unit tests for lab
 What I'm stuck on:
-  -nothing so far
 
 Moh:
-What I've done since last time: Set up the trello board and getting used to Pycharm 
-What I'm doing for next time: Working on Unittests for the course class
-What I'm stuck on: Nothing at the moment.
+What I've done since last time:
+What I'm doing for next time:
+What I'm stuck on:
 
-Zack:
-What I've done since last time: got set up on trello board, wrote some PBIs into the backlog, integrated our github project into my pycharm
-What I'm doing for next time: Working on course Unittest
-What I'm stuck on: Nothing so far
+Zack: 
+What I've done since last time: set up trello workspace and board and invited group memebers, wrote 4 PBIs into the backlog, integrated our github project into my pycharm
+What I'm doing for next time: Doing unit tests with Moh for courses 
+What I'm stuck on: Nothing right now
 
 Abdullah:
 What I've done since last time:
@@ -32,37 +27,6 @@ What I'm stuck on:
 11/26/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
  *Copy and paste this template for the next meeting before filling in for an easier life
 Adriana:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on: 
-
-Vince:
-What I've done since last time: 
-  -Implement Instructor unit tests
-  -Implement Lab unit tests
-What I'm doing for next time:
-  -create models.py
-What I'm stuck on:
-  -how to import models.py into unit tests without getting an error
-
-Moh:
-What I've done since last time: Assigned to work on the course unittests 
-What I'm doing for next time: Continuing to work on the course unittests
-What I'm stuck on: Checking if our unittests methods were correct or not
-
-Zack:
-What I've done since last time: Did work with moe on courses unittests 
-What I'm doing for next time:  Finish the unittests
-What I'm stuck on: How to create a set up function for my unittests 
-
-Abdullah:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
-
-11/28/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
- *Copy and paste this template for the next meeting before filling in for an easier life
-Adriana:
 What I've done since last time:
 What I'm doing for next time:
 What I'm stuck on:
@@ -73,9 +37,9 @@ What I'm doing for next time:
 What I'm stuck on:
 
 Moh:
-What I've done since last time: Worked on the Unittests with Zach
-What I'm doing for next time: Using a setup function when we import from models.py
-What I'm stuck on: Nothing at the moment.
+What I've done since last time:
+What I'm doing for next time:
+What I'm stuck on:
 
 Zack:
 What I've done since last time:
@@ -86,4 +50,3 @@ Abdullah:
 What I've done since last time:
 What I'm doing for next time:
 What I'm stuck on:
-
