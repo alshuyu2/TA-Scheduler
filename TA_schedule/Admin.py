@@ -1,73 +1,39 @@
 from datetime import datetime
+#import admin
 import instructor
 import TA
 import labs
 
-# we can import stack overflow
 class Admin(object):
-    def __init__(self, instr=None, time=None, loc="", tas=[], labs=[]):
-        self.instr = instr
-        self.time = time
-        self.loc = loc
-        self.tas = tas
-        self.labs = labs
+    def __init__(self, name=None, email=None, phone=None, address="", office_hour = None, courses = None, labs = None):
+        self.name = name
+        self.email = email
+        self.phone = phone
+        self.address = address
 
-    def getMeetTime(self):
-        # if(self.time is None):
-        #     raise ValueError
-        #
-        # gettime = "Meet time for the lab is" + str(self.time)
-        # return gettime
-        return self.time
 
-    def setMeetTime(self, date):
-        # try:
-        #     checkNum = int(date)
-        #
-        # except ValueError:
-        #     self.time = checkNum
-        # else:
-        #     print("The data parameter isn't an int")
-        #     pass #It is not a number
 
-        # check if date is a datetime object
-        if not isinstance(date, datetime):
-            raise TypeError("Expected datetime but got something else instead")
 
-        self.time = date
 
-    def setLoc(self, location):
-        self.loc = location
+    def setName(self, name_add):
+        self.name = name_add
 
-    def getLoc(self):
-        return self.loc
+    def getName(self):
+        return self.name
 
-    def setInstructor(self, settingInstructor):
-        if not isinstance(settingInstructor, instructor):
-            raise TypeError("It is not of Instructor class")
+    def setEmail(self, email_add):
+        self.email = email_add
 
-        self.instr = settingInstructor
+    def getEmail(self):
+        return self.email
 
-    def getInstr(self):
-        return self.instr
+    def setPhone(self, phoneNum):
+        self.phone = phoneNum
 
-    def addTAs(self, TA_add):
-        if not isinstance(TA_add, TA):
-            raise TypeError("The parameter object isn't of type TA")
+    def getPhone(self):
+        return self.phone
 
-        self.tas.append(TA_add)
 
-    def getTAs(self):
-        return self.tas
+    def setAddress(self, addLoc):
+        self.address = addLoc
 
-    def addLabs(self, Lab_add):
-        if not isinstance(Lab_add, labs):
-            raise TypeError("The parameter object isn't of type labs")
-
-        self.labs.append(Lab_add)
-
-    def getLabs(self):
-        return self.labs
-
-    def getTimeAndLoc(self):
-        return "Lab: " + self.loc + " starts at:" + self.time
