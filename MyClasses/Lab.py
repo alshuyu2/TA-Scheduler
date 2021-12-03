@@ -1,11 +1,14 @@
-from MeetTimeLocation import MeetTimeLocation
+from MyClasses.MeetTimeLocation import MeetTimeLocation
 from datetime import datetime
+
 
 class Course:
     pass
 
+
 class TA:
     pass
+
 
 class Lab(MeetTimeLocation):
 
@@ -39,6 +42,7 @@ class Lab(MeetTimeLocation):
         return self.loc
 
     # non interface methods
+
     def set_course(self, course):
         if not isinstance(course, Course):
             raise TypeError('Must be course object')

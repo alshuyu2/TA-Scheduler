@@ -29,13 +29,20 @@ class UserFactory:
 
     def get_user(self, p_info: PersonalInfo):
         fields = {"name": str(p_info.user_id.first_name + ' ' + p_info.user_id.last_name),
-                 "email": str(p_info.user_id.email),
-                 "phone": int(p_info.phone),
-                 "address": str(p_info.address),
-                 "office_hours": str(p_info.office_hours),
-                 "courses": list(Class.objects.filter(instr_id=p_info.user_id).values_list()),
-                 "labs": list(Lab.objects.filter(ta_name=p_info.user_id).values_list())
-                 }
+                  "email": str(p_info.user_id.email),
+                  "phone": int(p_info.phone),
+                  "address": str(p_info.address),
+                  "office_hours": str(p_info.office_hours),
+                  "courses": list(Class.objects.filter(instr_id=p_info.user_id).values_list()),
+                  "labs": list(Lab.objects.filter(ta_name=p_info.user_id).values_list())
+                  }
+        # ** unpacks dict
+        # * unpacks list
+        return self._creator[p_info.role](**fields)
+
+
+
+
 
         # arg = [1, 2]
         # name = str(p_info.user_id.first_name + ' ' + p_info.user_id.last_name)
@@ -46,9 +53,7 @@ class UserFactory:
         # course_list = list(Class.objects.filter(instr_id=p_info.user_id).values_list())
         # lab_list = list(Lab.objects.filter(ta_name=p_info.user_id).values_list())
         # return self._creator[p_info.role](name, email, phone, addr, office_hour, course_list, lab_list)
-        # **keywd unpacks dict
-        # *arg unpacks list
-        return self._creator[p_info.role](**fields)
+
         # if p_info.role == Role.INSTRUCTOR:
         #     course_list = list(Class.objects.filter(instr_id=p_info.user_id).values_list())
         #     return Instructor(name=name, email=email, phone=phone, addr=addr, courses=course_list,

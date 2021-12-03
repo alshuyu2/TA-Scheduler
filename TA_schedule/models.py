@@ -4,7 +4,7 @@ from .roles import Role
 
 
 class PersonalInfo(models.Model):
-    user_id = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
     phone = models.CharField(max_length=10)
     role = models.CharField(max_length=10, choices=Role.choices, default=Role.ADMIN)
     address = models.CharField(max_length=25, default='')

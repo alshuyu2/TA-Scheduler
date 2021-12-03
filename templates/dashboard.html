@@ -1,36 +1,100 @@
 {% extends "base.html" %}
-{% block navbar %}
-    <nav class="navbar navbar-expand-sm navbar-dark bg-success flex-nowrap" > <!--style="background-color: #e3f2fd"; -->
-        <span class="navbar-brand w-100">TA scheduler</span>
-        <!-- Navbar content -->
-        <div class="navbar-collapse  justify-content-end">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/dashboard/">Dashboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/login/">Login</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout/">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-{% endblock navbar %}
+{#{% block navbar %}#}
+{#   <li class="nav-item">#}
+{#       <a class="nav-link text-light" href="/">Home</a>#}
+{#   </li>#}
+{#    <li class="nav-item">#}
+{#        <a class="nav-link text-light" href="/dashboard/">Dashboard</a>#}
+{#    </li>#}
+{#    <li class="nav-item">#}
+{#        <a class="nav-link text-light" href="/login/">Login</a>#}
+{#    </li>#}
+{#    <li class="nav-item">#}
+{#        <a class="nav-link text-light" href="/logout/">Logout</a>#}
+{#    </li>#}
+{#{% endblock navbar %}#}
 {% block content %}
     <div class="content-section">
         <form action="/dashboard/" method = "POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">DashBoard</legend>
+                <legend class="border-bottom mb-4">{{ user.username }} - Dashboard</legend>
             </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Login</button>
+            <div class="card-deck card-columns">
+
+{#                <div class="card">#}
+                    <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="/profile/">
+    {#              <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">#}
+                  <div class="card-body">
+                    <h4 class="card-title">Edit Profile</h4>
+                    <p class="card-text">
+                      Change your first and last name, email, phone, or office hours.
+                    </p>
+{#                    <a href="#!" class="btn btn-info">Go somewhere</a>#}
+                  </div>
+                    </a>
+{#                </div>#}
+
+{#                <div class="card">#}
+                    <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="/courses/">
+    {#              <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">#}
+                  <div class="card-body">
+                    <h4 class="card-title">Edit Courses</h4>
+                    <p class="card-text">
+                      Change the courses associated with users.
+                    </p>
+{#                    <a href="#!" class="btn btn-info">Go somewhere</a>#}
+                  </div>
+                    </a>
+{#                </div>#}
+
+
+{#            <div class="card">#}
+                    <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="#">
+    {#              <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">#}
+                  <div class="card-body">
+                    <h4 class="card-title">Assignments</h4>
+                    <p class="card-text">
+                      View course and lab assignments
+                    </p>
+{#                    <a href="#!" class="btn btn-info">Go somewhere</a>#}
+                  </div>
+                    </a>
+                </div>
+
+            <div class="card-deck card-columns">
+                <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="#">
+    {#              <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">#}
+                  <div class="card-body">
+                    <h4 class="card-title">Public info</h4>
+                    <p class="card-text">
+                      View user's public information
+                    </p>
+{#                    <a href="#!" class="btn btn-info">Go somewhere</a>#}
+                  </div>
+                    </a>
+
+                <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="#">
+    {#              <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">#}
+                  <div class="card-body">
+                    <h4 class="card-title">Create Account</h4>
+                    <p class="card-text">
+                      Create an account for a new user
+                    </p>
+{#                    <a href="#!" class="btn btn-info">Go somewhere</a>#}
+                  </div>
+                    </a>
+
+
             </div>
+
+{#            <div class="form-group">#}
+{#                <button class="btn btn-outline-info" type="submit">Edit Profile</button>#}
+{#                <button class="btn btn-outline-info" type="submit">Edit Courses</button>#}
+{#                <button class="btn btn-outline-info" type="submit">Notifications</button>#}
+{#                <button class="btn btn-outline-info" type="submit">View Assignments</button>#}
+{#                <button class="btn btn-outline-info" type="submit">Search Public Info</button>#}
+{#            </div>#}
         </form>
     </div>
 {% endblock content %}
