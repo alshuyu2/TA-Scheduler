@@ -1,18 +1,18 @@
 11/23/21------------------------------------------------------------------------------------------------------------------------------------------------------------
-Adriana:
+Time: 4:45pm-5:00pm
+Attendance: All
+Tasks completed: Trello board set up(Adriana), Pycharm project set up(Vince), PBIs added to backlog(All), and sprint 1 outlined(Abdullah)
+Tasks generated: Sprint 1 tasks(All)
+
+-Adriana:
 What I've done since last time: Created a new final UML document for us to follow, set up trello workspace and board and invited group memebers, wrote 3 PBIs into the backlog, integrated our github project into my pycharm
 What I'm doing for next time: Writing TA unit tests
 What I'm stuck on: Nothing is currently holding me up
 
 Vince:
-What I've done since last time:
-  -Updated trello
-  -Set up django project in github
-What I'm doing for next time:
-  -unit tests for instructor
-  -unit tests for lab
-What I'm stuck on:
-  -nothing so far
+What I've done since last time: Updated trello and set up django project in github
+What I'm doing for next time: unit tests for instructor and unit tests for lab
+What I'm stuck on: nothing so far
 
 Moh:
 What I've done since last time: Set up the trello board and getting used to Pycharm 
@@ -30,20 +30,20 @@ What I'm doing for next time: Getting fimiliar with GitHub, Trello and create a 
 What I'm stuck on: Noting right now.
 
 11/26/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
- *Copy and paste this template for the next meeting before filling in for an easier life
-Adriana:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on: 
+Time: 4:30pm-4:47pm
+Attendance: All
+Tasks completed: Create role enum/dict (Vince)
+Tasks generated: refine database design (Vince, Moh, Adriana), complete models (All)
+
+-Adriana:
+What I've done since last time: Re-read testing and models documentation and reviewed Django tutorials online. 
+What I'm doing for next time: Need to fix the issues with my pycharm project since github is behaving oddly with it. Plan on group work tomorrow to improve models and refine       database design so that we can write our unit tests accurately. Plan to finish unit tests for the TA this weekend
+What I'm stuck on: Had issues with Github in my pycharm project
 
 Vince:
-What I've done since last time: 
-  -Implement Instructor unit tests
-  -Implement Lab unit tests
-What I'm doing for next time:
-  -create models.py
-What I'm stuck on:
-  -how to import models.py into unit tests without getting an error
+What I've done since last time: Implement Instructor unit tests and implement Lab unit tests
+What I'm doing for next time: create models.py
+What I'm stuck on: how to import models.py into unit tests without getting an error
 
 Moh:
 What I've done since last time: Assigned to work on the course unittests 
@@ -61,11 +61,15 @@ What I'm doing for next time: Implement unit test for Admin Class and interface.
 What I'm stuck on: I am not clear exacly how to implement these tests.
 
 11/28/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
- *Copy and paste this template for the next meeting before filling in for an easier life
-Adriana:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+Time:11:30-11:50
+Attendance:All
+Tasks completed: significant progress on unittsets(All)
+Tasks generated:Added task to implement each class based on unittest(All)
+
+-Adriana:
+What I've done since last time: Significant progress on unittests
+What I'm doing for next time:Expect to finish unittests before next meeting, likely tonight
+What I'm stuck on: Was confused on some syntax for the variables for TA, Vince clarified
 
 Vince:
 What I've done since last time:
@@ -87,13 +91,18 @@ What I've done since last time: Statrted Implemeting the unit tets for Amin and 
 What I'm doing for next time: Complete the unit tests.
 What I'm stuck on: Nothing at the moment.
 
-11/30/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
-Adriana:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+11/30/21----------------------------------------------------------------------------------------------------------------------------------------------------------
+Time: 4:45-5:00
+Attendance: All
+Tasks completed:Unittests complete (All)
+Tasks generated:Implement classes based on unittests(All)
 
-Vince:
+-Adriana:
+What I've done since last time: Completed unittests for TA and started TA class
+What I'm doing for next time: Completing TA class
+What I'm stuck on:Ensuring TA class inherits from User
+
+-Vince:
 What I've done since last time:
 What I'm doing for next time:
 What I'm stuck on:
@@ -103,42 +112,44 @@ What I've done since last time: Finished the Unittests with Zach
 What I'm doing for next time: Working on the course and Instructor class
 What I'm stuck on: Making sure every method is working and double checking
 
-Zack:
+-Zack:
 What I've done since last time:
 What I'm doing for next time:
 What I'm stuck on:
 
-Abdullah:
+-Abdullah:
 What I've done since last time: Completed the unit tests for Admin and interference.
 What I'm doing for next time: Statrt Implemeting the classes I wrote unit tests for and marge all of our unit tests and Implemented files.
 What I'm stuck on: Nothing at the moment.
 
-
-
-
 12/03/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
-*Copy and paste this template for the next meeting before filling in for an easier life
-Adriana:
+ *Copy and paste this template for the next meeting before filling in for an easier life
+Time: 
+Attendance:
+Tasks completed:
+Tasks generated:
+
+-Adriana:
 What I've done since last time:
 What I'm doing for next time:
 What I'm stuck on:
 
-Vince:
+-Vince:
 What I've done since last time:
 What I'm doing for next time:
 What I'm stuck on:
 
-Moh:
-What I've done since last time: 
-What I'm doing for next time: 
-What I'm stuck on
-
-Zack:
+-Moh:
 What I've done since last time:
 What I'm doing for next time:
 What I'm stuck on:
 
-Abdullah:
+-Zack:
 What I've done since last time:
 What I'm doing for next time:
-What I'm stuck on: Nothing at the moment.
+What I'm stuck on:
+
+-Abdullah:
+What I've done since last time:
+What I'm doing for next time:
+What I'm stuck on:
