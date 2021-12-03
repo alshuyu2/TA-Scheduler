@@ -82,9 +82,9 @@ What I'm doing for next time: Using a setup function when we import from models.
 What I'm stuck on: Nothing at the moment.
 
 Zack:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Almosted finished the Unittests with Moh 
+What I'm doing for next time: Compelte the tests and work on a setup function 
+What I'm stuck on: Nothing 
 
 Abdullah:
 What I've done since last time: Statrted Implemeting the unit tets for Amin and Interfaces after looking at some example of Vince's unit tests.
@@ -113,9 +113,9 @@ What I'm doing for next time: Working on the course and Instructor class
 What I'm stuck on: Making sure every method is working and double checking
 
 -Zack:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Comptelted the Unittests 
+What I'm doing for next time: Now working on the methods of course Class and helping with Instructor class
+What I'm stuck on: Understandihg what variables to use for the methods 
 
 -Abdullah:
 What I've done since last time: Completed the unit tests for Admin and interference.
