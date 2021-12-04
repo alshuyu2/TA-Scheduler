@@ -47,23 +47,6 @@ class Courses(View):
 
 class Profile(View):
 
-    # def profile(self, request):
-    #     u_form = UserUpdateForm(request.POST, instance=request.user)
-    #
-    #     p_form = PersonalInfoUpdateForm(request.POST,
-    #                                     instance=PersonalInfo.objects.filter(user_id=request.user).first())
-    #
-    #     if u_form.is_valid() and p_form.is_valid():
-    #         u_form.save()
-    #         p_form.save()
-    #         messages.success(request, f'Your account has been updated!')
-    #         return redirect('/profile/')
-    #     context = {
-    #         'u_form': u_form,
-    #         'p_form': p_form
-    #     }
-    #     return render(request, "profile.html", context)
-
     def get(self, request):
         u_form = UserUpdateForm(instance=request.user)
         p_form = PersonalInfoUpdateForm(instance=request.user.personalinfo)
@@ -76,13 +59,13 @@ class Profile(View):
 
     def post(self, request):
         u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = PersonalInfoUpdateForm(request.POST,instance=request.user.personalinfo)
+        p_form = PersonalInfoUpdateForm(request.POST, instance=request.user.personalinfo)
 
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
             messages.success(request, f'Your account has been updated!')
-            return redirect('/profile/')
+            return redirect('/dashboard/')
         context = {
             'u_form': u_form,
             'p_form': p_form

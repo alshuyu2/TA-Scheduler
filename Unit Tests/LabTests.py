@@ -6,12 +6,12 @@ from TA_schedule.models import Class, Lab
 
 
 # TODO only here to get rid of errors
-class Lab:
-    def __init__(self, course=None, meetTime=None, loc='', ta=None):
-        self.course = course
-        self.meetTime = meetTime
-        self.loc = loc
-        self.ta = ta
+# class Lab:
+#     def __init__(self, course=None, meetTime=None, loc='', ta=None):
+#         self.course = course
+#         self.meetTime = meetTime
+#         self.loc = loc
+#         self.ta = ta
 
 
 class TA:
