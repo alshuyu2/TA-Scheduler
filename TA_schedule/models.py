@@ -2,32 +2,32 @@ from django.db import models
 from .roles import Role
 
 
-class MyUser(models.Model):
+
+class PersonalInfo(models.Model):
+    user_id = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    phone = models.CharField(max_length=10)
+    role = models.CharField(max_length=10, choices=Role.choices, default=Role.ADMIN)
+    address = models.CharField(max_length=25)
+
+
+class Class(models.Model):
     name = models.CharField(max_length=20)
-    password = models.CharField(max_length=20)
-    role = models.CharField(max_length=20, choices=Role.choices)
+    instr_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+
+    def __str__(self):
+        return User.username
+
+class TAtoClass(models.Model):
+    class_name = models.ForeignKey(Class, on_delete=models.SET_NULL, null=True)
+    ta_name = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
 
 class Lab(models.Model):
-    name = models.CharField(max_length=20)
+    section = models.CharField(max_length=20)
+    ta_name = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
 
-class LabEnrollment(models.Model):
-    user_id = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
-    lab_id = models.ForeignKey(Lab, on_delete=models.CASCADE, null=True)
+class ClassToLab(models.Model):
+    class_id = models.ForeignKey(Class, on_delete=models.SET_NULL, null=True)
+    lab_id = models.ForeignKey(Lab, on_delete=models.SET_NULL, null=True)
 
-
-class Classes(models.Model):
-    name = models.CharField(max_length=20)
-    lab_id = models.ForeignKey(Lab, on_delete=models.CASCADE, null=True)
-
-
-class ClassEnrollment(models.Model):
-    user_id = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
-    class_id = models.ForeignKey(Classes, on_delete=models.CASCADE, null=True)
-
-
-class PersonalInfo(models.Model):
-    user_id = models.ForeignKey(MyUser, on_delete=models.CASCADE, null=True)
-    email = models.CharField(max_length=30)
-    phone = models.CharField(max_length=10)
