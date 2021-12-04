@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="content-section">
+        <form action="/courses/" method ="GET">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">{{ user.username }} - Courses</legend>
+            </fieldset>
+            <div class="row justify-content-center">
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                      <th>#</th>
+                      <th>Course</th>
+                        <th>Instructor</th>
+                        <th>Lab sections</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for i in courses %}
+                      <tr>
+                        <th scope="row">{{ forloop.counter }}</th>
+                        <td>{{ i.course }}</td>
+                          <td> {{ i.loc }}</td>
+                        <td> {{ i.ta }}</td>
+                      </tr>
+                    {% endfor %}
+{#                    <tr>#}
+{#                      <th scope="row">1</th>#}
+{#                      <td>Mark</td>#}
+{#                    </tr>#}
+                  </tbody>
+                </table>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

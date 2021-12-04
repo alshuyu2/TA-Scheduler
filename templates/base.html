@@ -6,13 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+{#    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">#}
+    <title>TA Scheduler</title>
+      <nav class="navbar navbar-expand-sm navbar-dark bg-info flex-nowrap" > <!--style="background-color: #e3f2fd"; -->
+            <span class="navbar-brand w-100">TA scheduler</span>
+            <!-- Navbar content -->
+            <div class="navbar-collapse  justify-content-end">
+                <ul class="navbar-nav mx-auto text-white">
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/dashboard/">Dashboard</a>
+                        </li>
 
-    {% if title %}
-        <title>TA Scheduler - {{ title }}</title>
-    {% else %}
-        <title>TA Scheduler</title>
-    {% endif %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/logout/">Logout</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/login/">Login</a>
+                        </li>
+                    {% endif %}
+                    {% block navbar %} {% endblock navbar %}
+                </ul>
+            </div>
+        </nav>
   </head>
   <body>
   <div class="container">

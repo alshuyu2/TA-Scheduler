@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-  <div class="content-section">
-        <form action="/" method = "GET">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Welcome to our homepage</legend>
-            </fieldset>
-            <div class="form-group">
-{#                <button class="btn btn-outline-info" type="submit">Login</button>#}
-                <a class="btn btn-outline-info" role="button" href="/login">Login</a>
-            </div>
-        </form>
-    </div>
+<div class="jumbotron">
+    <form action="/" method = "GET">
+        {% csrf_token %}
+
+      <h1 class="display-3">TA scheduler</h1>
+      <p class="lead">This is a description of what our website will do. We will fill it in as we go.</p>
+      <hr class="my-2">
+      <p>This is another description for what our website will do. :)</p>
+      <p class="lead">
+        <a class="btn btn-info btn-lg" href="/login/" role="button">Login</a>
+      </p>
+    </form>
+</div>
 {% endblock content %}
