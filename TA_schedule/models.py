@@ -1,6 +1,6 @@
-from django.contrib.auth.models import User
 from django.db import models
 from .roles import Role
+
 
 
 class PersonalInfo(models.Model):
@@ -30,3 +30,4 @@ class Lab(models.Model):
 class ClassToLab(models.Model):
     class_id = models.ForeignKey(Class, on_delete=models.SET_NULL, null=True)
     lab_id = models.ForeignKey(Lab, on_delete=models.SET_NULL, null=True)
+
