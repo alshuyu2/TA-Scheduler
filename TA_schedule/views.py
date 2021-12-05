@@ -5,7 +5,7 @@ from django.dispatch import receiver
 from django.shortcuts import render, redirect
 from django.views import View
 from MyClasses.Lab import Lab
-from .forms import UserUpdateForm, PersonalInfoUpdateForm
+from .forms import UserUpdateForm, PersonalInfoUpdateForm, UserCreateForm
 from django.core.exceptions import ObjectDoesNotExist
 
 from .models import PersonalInfo
@@ -14,9 +14,12 @@ from .models import PersonalInfo
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     try:
+        #instance.save()
         instance.personalinfo.save()
     except ObjectDoesNotExist:
+        #User.object.create(instance)
         PersonalInfo.objects.create(user=instance)
+
 
 
 class Home(View):
@@ -58,7 +61,7 @@ class Profile(View):
         # return render(request, "profile.html")
 
     def post(self, request):
-        u_form = UserUpdateForm(request.POST, instance=request.user)
+        u_form = create_user_profile(request.POST, instance=request.user)
         p_form = PersonalInfoUpdateForm(request.POST, instance=request.user.personalinfo)
 
         if u_form.is_valid() and p_form.is_valid():
@@ -72,3 +75,32 @@ class Profile(View):
         }
         return render(request, "profile.html", context)
 
+
+class CreateAcc(View):
+    def get(self, request):
+        u_form = UserCreateForm()
+        p_form = PersonalInfoUpdateForm()
+        context = {
+            'u_form': u_form,
+            'p_form': p_form
+        }
+        return render(request, "CreateAcc.html", context)
+
+    def post(self, request):
+        u_form = UserCreateForm(request.POST)
+        #instead of update, create new
+        p_form = PersonalInfoUpdateForm(request.POST)
+        # instead of update, create new
+
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been Created!')
+            return redirect('/dashboard/')
+
+        context = {
+            'u_form': u_form,
+            'p_form': p_form
+        }
+        messages.error(request, f'Your account could not be Created')
+        return render(request, "CreateAcc.html", context)
