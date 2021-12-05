@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.views import View
 
 from .UserFactory import UserFactory
-from MyClasses.Lab import Lab
+from .Lab import Lab
 from .forms import UserUpdateForm, PersonalInfoUpdateForm, CourseCreateForm, LabCreateForm, UserCreateForm
 from .forms import UserUpdateForm, PersonalInfoUpdateForm, UserCreateForm
 
