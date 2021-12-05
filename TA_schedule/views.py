@@ -8,7 +8,7 @@ from django.views import View
 from .UserFactory import UserFactory
 from .Lab import Lab
 from .forms import UserUpdateForm, PersonalInfoUpdateForm, CourseCreateForm, LabCreateForm, UserCreateForm
-from .forms import UserUpdateForm, PersonalInfoUpdateForm, UserCreateForm
+# from .forms import UserUpdateForm, PersonalInfoUpdateForm, UserCreateForm
 
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -109,7 +109,7 @@ class Profile(View):
         # return render(request, "profile.html")
 
     def post(self, request):
-        u_form = create_user_profile(request.POST, instance=request.user)
+        u_form = UserUpdateForm(request.POST, instance=request.user)
         p_form = PersonalInfoUpdateForm(request.POST, instance=request.user.personalinfo)
 
         if u_form.is_valid() and p_form.is_valid():
