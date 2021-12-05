@@ -72,9 +72,9 @@ What I'm doing for next time:Expect to finish unittests before next meeting, lik
 What I'm stuck on: Was confused on some syntax for the variables for TA, Vince clarified
 
 Vince:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: created the dashboard html and create models.py
+What I'm doing for next time: continue working on the html and views class
+What I'm stuck on: nothing 
 
 Moh:
 What I've done since last time: Worked on the Unittests with Zach
@@ -103,9 +103,9 @@ What I'm doing for next time: Completing TA class
 What I'm stuck on:Ensuring TA class inherits from User
 
 -Vince:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: created views for editing profile, dashboard, login, logout
+What I'm doing for next time: working on displaying and creating courses in the course page
+What I'm stuck on: nothing
 
 Moh:
 What I've done since last time: Finished the Unittests with Zach
@@ -135,9 +135,9 @@ What I'm doing for next time:
 What I'm stuck on:
 
 -Vince:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: created view for creating course and have the ability to view/ add courses, instructors, labs, and tas
+What I'm doing for next time: writing acceptance tests for all pbis that this covers
+What I'm stuck on: how to get form fields from the request object
 
 -Moh:
 What I've done since last time:
@@ -154,7 +154,8 @@ What I've done since last time:
 What I'm doing for next time:
 What I'm stuck on:
 
-12/05/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+12/07/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
  *Copy and paste this template for the next meeting before filling in for an easier life
 Time: 
 Attendance:
