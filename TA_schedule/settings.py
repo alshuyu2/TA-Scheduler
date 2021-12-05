@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'TA_schedule.apps.TA_scheduleConfig',
 
+
 ]
 
 MIDDLEWARE = [

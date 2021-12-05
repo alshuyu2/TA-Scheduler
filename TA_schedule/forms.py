@@ -18,6 +18,7 @@ class PersonalInfoUpdateForm(forms.ModelForm):
         fields = ['office_hours', 'phone']
 
 
+
 class CourseCreateForm(forms.ModelForm):
 
     class Meta:
@@ -47,4 +48,17 @@ class LabCreateForm(forms.ModelForm):
     class Meta:
         model = Lab
         fields = ['section', 'ta_name']
+
+class UserCreateForm(forms.ModelForm):
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields = ['username', 'email', 'password']
+
+class PersonalInfoUpdateForm(forms.ModelForm):
+
+    class Meta:
+        model = PersonalInfo
+        fields = ['office_hours', 'phone', 'role']
 
