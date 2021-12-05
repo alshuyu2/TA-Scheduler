@@ -1,8 +1,11 @@
-import course
+# import course
 from datetime import datetime
+import TA_schedule.course
 
 
-class Instructor(object):
+# from UserInterface import UserInterface
+
+class Instructor():
     def __init__(self, name=None, email=None, phone=None, address="", officehours=None, courses=[], labs=[]):
         self.name = name
         self.email = email
@@ -49,8 +52,8 @@ class Instructor(object):
         return self.address
 
     def addCourse(self, courseAdd):
-        if not isinstance(courseAdd, course):
-            raise TypeError("The parameter is not of object course")
+        # if not isinstance(courseAdd, Courses):
+        #     raise TypeError("The parameter is not of object course")
         # check if the course is already there
 
         if courseAdd in self.courses:
@@ -58,7 +61,6 @@ class Instructor(object):
             pass
 
         self.courses.append(courseAdd)
-
 
     def getMyCourses(self):
         return self.courses

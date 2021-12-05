@@ -1,8 +1,10 @@
 import string
 from datetime import datetime
-import instructor
-import TA
-import labs
+# import instructor
+# import TA
+# import labs
+# from instructor import Instructor
+import TA_schedule.Lab
 
 
 class TA(object):
@@ -65,12 +67,14 @@ class TA(object):
         return "Email:" + self.get_email() + "\nPhone Number:" + self.get_phone() + "\nOffice Hours:" + self.get_hours()
 
     def add_lab(self, given_lab):
-        if not isinstance(given_lab, labs):
-            raise TypeError("Lab must be of type lab")
+        # if not isinstance(given_lab, Lab.Lab):
+        #     raise TypeError("Lab must be of type lab")
         self.labs.append(given_lab)
 
     def remove_lab(self, given_lab):
-        if not isinstance(given_lab, labs):
-            raise TypeError("Lab must be of type lab")
+        # if not isinstance(given_lab, Lab):
+        #     raise TypeError("Lab must be of type lab")
         self.labs.remove(given_lab)
 
+    def get_course(self):
+        pass

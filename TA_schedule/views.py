@@ -4,11 +4,11 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.shortcuts import render, redirect
 from django.views import View
-from MyClasses.Lab import Lab
-from .forms import UserUpdateForm, PersonalInfoUpdateForm
+from .UserFactory import UserFactory
+from .forms import UserUpdateForm, PersonalInfoUpdateForm, CourseCreateForm, LabCreateForm
 from django.core.exceptions import ObjectDoesNotExist
 
-from .models import PersonalInfo
+from .models import PersonalInfo, Class, Lab, ClassToLab
 
 
 @receiver(post_save, sender=User)
@@ -35,11 +35,54 @@ class DashBoard(View):
         return render(request, "dashboard.html")
 
 
-class Courses(View):
+class CourseAdd(View):
     def get(self, request):
-        course_list = ["Bio", "English", "Spanish", "CS361"]
-        lab_list = [Lab(course='Bio', meet_time='9:30', ta='John Doe'), Lab(course='Gym', meet_time='11:30', ta='Me')]
-        return render(request, "courses.html", {"courses": lab_list})
+        c_form = CourseCreateForm()
+        l_form = LabCreateForm()
+
+        context = {
+            'c_form': c_form,
+            'l_form': l_form
+        }
+        return render(request, "addcourse.html", context)
+
+    def post(self, request):
+        c_form = CourseCreateForm(request.POST)
+        l_form = LabCreateForm(request.POST)
+
+        if c_form.is_valid() and l_form.is_valid():
+            c_form.save()
+            l_form.save()
+            c = list(Class.objects.filter(name=c_form.cleaned_data.get('name')))
+            lab = list(Lab.objects.filter(section=l_form.cleaned_data.get('section')))
+            ClassToLab.objects.create(class_id=c.pop(), lab_id=lab.pop())
+            messages.success(request, f'Your class has been added!')
+            return redirect('/courses/')
+        # else:
+        #     return redirect('/dashboard/')
+        context = {
+            'c_form': c_form,
+            'l_form': l_form
+        }
+        return render(request, "addcourse.html", context)
+
+
+class Courses(View):
+
+    def get(self, request):
+        course_lab_list = []
+
+        course_list = list(Class.objects.all())
+        for i in course_list:
+            class_lab_list = list(ClassToLab.objects.filter(class_id=i))
+            lab_list = []
+            ta_name = []
+            for j in class_lab_list:
+                lab_list.append(j.lab_id.section)
+                ta_name.append(j.lab_id.ta_name)
+            course_lab_list.append((i, lab_list, ta_name))
+        # lab_list = ClassToLab.objects.filter()
+        return render(request, "courses.html", {"courses": course_lab_list})
 
     def post(self, request):
         return render(request, "courses.html")
@@ -50,6 +93,7 @@ class Profile(View):
     def get(self, request):
         u_form = UserUpdateForm(instance=request.user)
         p_form = PersonalInfoUpdateForm(instance=request.user.personalinfo)
+
         context = {
             'u_form': u_form,
             'p_form': p_form
@@ -71,4 +115,3 @@ class Profile(View):
             'p_form': p_form
         }
         return render(request, "profile.html", context)
-

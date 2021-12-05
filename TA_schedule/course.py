@@ -1,7 +1,12 @@
 from datetime import datetime
-import instructor
-import TA
-import labs
+import TA_schedule.instructor
+import TA_schedule.TA_Class
+import TA_schedule.Lab
+
+
+# import instructor
+# import TA
+# import labs
 
 # we can import stack overflow
 class Courses(object):
@@ -43,8 +48,8 @@ class Courses(object):
         return self.loc
 
     def setInstructor(self, settingInstructor):
-        if not isinstance(settingInstructor, instructor):
-            raise TypeError("It is not of Instructor class")
+        # if not isinstance(settingInstructor, instructor.Ins):
+        #     raise TypeError("It is not of Instructor class")
 
         self.instr = settingInstructor
 
@@ -52,8 +57,8 @@ class Courses(object):
         return self.instr
 
     def addTAs(self, TA_add):
-        if not isinstance(TA_add, TA):
-            raise TypeError("The parameter object isn't of type TA")
+        # if not isinstance(TA_add, TA):
+        #     raise TypeError("The parameter object isn't of type TA")
 
         self.tas.append(TA_add)
 
@@ -61,8 +66,8 @@ class Courses(object):
         return self.tas
 
     def addLabs(self, Lab_add):
-        if not isinstance(Lab_add, labs):
-            raise TypeError("The parameter object isn't of type labs")
+        # if not isinstance(Lab_add, Lab):
+        #     raise TypeError("The parameter object isn't of type labs")
 
         self.labs.append(Lab_add)
 
