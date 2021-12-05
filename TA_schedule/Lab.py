@@ -1,14 +1,15 @@
-from MyClasses.MeetTimeLocation import MeetTimeLocation
+from TA_schedule.MeetTimeLocation import MeetTimeLocation
 from datetime import datetime
+# import TA_Class
 
 
-class Course:
-    pass
-
-
-class TA:
-    pass
-
+# class Course:
+#     pass
+#
+#
+# class TA:
+#     pass
+#
 
 class Lab(MeetTimeLocation):
 
@@ -44,7 +45,7 @@ class Lab(MeetTimeLocation):
     # non interface methods
 
     def set_course(self, course):
-        if not isinstance(course, Course):
+        if not isinstance(course, course.Courses):
             raise TypeError('Must be course object')
         self.course = course
 
@@ -55,7 +56,5 @@ class Lab(MeetTimeLocation):
         return self.ta
 
     def set_ta(self, other):
-        if not isinstance(other, TA):
-            raise TypeError('Must be TA object')
         self.ta = other
         return self.ta

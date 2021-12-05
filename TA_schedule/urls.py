@@ -19,7 +19,8 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 
 
-from TA_schedule.views import Home, DashBoard, Courses, Profile, CreateAcc
+
+from TA_schedule.views import Home, DashBoard, Courses, Profile, CourseAdd, CreateAcc
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +30,6 @@ urlpatterns = [
     path('dashboard/', login_required(DashBoard.as_view())),
     path('courses/', login_required(Courses.as_view())),
     path('profile/', login_required(Profile.as_view())),
+    path('addcourse/', login_required(CourseAdd.as_view())),
     path('CreateAcc/', login_required(CreateAcc.as_view())),
 ]
