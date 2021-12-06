@@ -123,16 +123,15 @@ What I'm doing for next time: Statrt Implemeting the classes I wrote unit tests 
 What I'm stuck on: Nothing at the moment.
 
 12/03/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
- *Copy and paste this template for the next meeting before filling in for an easier life
 Time: 
 Attendance:
 Tasks completed:
 Tasks generated:
 
 -Adriana:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Updated some class descriptions in our UML document and started our sprint 1 summary pdf
+What I'm doing for next time:ensuring my tests pass, pycharm issues holding me back
+What I'm stuck on: Lots of issues with pycharm
 
 -Vince:
 What I've done since last time: created view for creating course and have the ability to view/ add courses, instructors, labs, and tas
@@ -163,8 +162,8 @@ Tasks completed:
 Tasks generated:
 
 -Adriana:
-What I've done since last time:
-What I'm doing for next time:
+What I've done since last time: Continued on UML and pdf tasks
+What I'm doing for next time: ensuring unittests run and completing the pdf as well as completing the updated UML
 What I'm stuck on:
 
 -Vince:
