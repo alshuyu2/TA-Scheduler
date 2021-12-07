@@ -7,7 +7,8 @@ from django.views import View
 
 from .UserFactory import UserFactory
 from .Lab import Lab
-from .forms import UserUpdateForm, PersonalInfoUpdateForm, CourseCreateForm, LabCreateForm, UserCreateForm
+from .forms import UserUpdateForm, PersonalInfoUpdateForm, CourseCreateForm, LabCreateForm, UserCreateForm, \
+    PersonalInfoCreateForm
 # from .forms import UserUpdateForm, PersonalInfoUpdateForm, UserCreateForm
 
 from django.core.exceptions import ObjectDoesNotExist
@@ -18,12 +19,11 @@ from .models import PersonalInfo, Class, Lab, ClassToLab
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):
     try:
-        #instance.save()
+        # instance.save()
         instance.personalinfo.save()
     except ObjectDoesNotExist:
-        #User.object.create(instance)
+        # User.object.create(instance)
         PersonalInfo.objects.create(user=instance)
-
 
 
 class Home(View):
@@ -57,9 +57,11 @@ class CourseAdd(View):
         c_form = CourseCreateForm(request.POST)
         l_form = LabCreateForm(request.POST)
 
+
         if c_form.is_valid() and l_form.is_valid():
             c_form.save()
             l_form.save()
+            # print('about to redirect')
             c = list(Class.objects.filter(name=c_form.cleaned_data.get('name')))
             lab = list(Lab.objects.filter(section=l_form.cleaned_data.get('section')))
             ClassToLab.objects.create(class_id=c.pop(), lab_id=lab.pop())
@@ -127,7 +129,7 @@ class Profile(View):
 class CreateAcc(View):
     def get(self, request):
         u_form = UserCreateForm()
-        p_form = PersonalInfoUpdateForm()
+        p_form = PersonalInfoCreateForm()
         context = {
             'u_form': u_form,
             'p_form': p_form
@@ -136,13 +138,15 @@ class CreateAcc(View):
 
     def post(self, request):
         u_form = UserCreateForm(request.POST)
-        #instead of update, create new
-        p_form = PersonalInfoUpdateForm(request.POST)
+        # instead of update, create new
+        p_form = PersonalInfoCreateForm(request.POST)
         # instead of update, create new
 
+        print("before validation")
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
+            print("im about to redirect")
             messages.success(request, f'Your account has been Created!')
             return redirect('/dashboard/')
 
@@ -152,4 +156,3 @@ class CreateAcc(View):
         }
         messages.error(request, f'Your account could not be Created')
         return render(request, "CreateAcc.html", context)
-

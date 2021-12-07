@@ -3,6 +3,15 @@ from django.contrib.auth.models import User
 from .models import PersonalInfo, Class, Lab
 
 
+# class My_Form(forms.ModelForm):
+#     class Meta:
+#         model = My_Class
+#         fields = ('first_name', 'last_name' , 'address')
+#
+#     def __init__(self, *args, **kwargs):
+#         super(My_Form, self).__init__(*args, **kwargs)
+#         self.fields['address'].required = False
+
 class UserUpdateForm(forms.ModelForm):
     email = forms.EmailField()
 
@@ -11,16 +20,13 @@ class UserUpdateForm(forms.ModelForm):
         fields = ['username', 'email']
 
 
-class PersonalInfoUpdateForm(forms.ModelForm):
-
+class   PersonalInfoUpdateForm(forms.ModelForm):
     class Meta:
         model = PersonalInfo
         fields = ['office_hours', 'phone']
 
 
-
 class CourseCreateForm(forms.ModelForm):
-
     class Meta:
         model = Class
         fields = ['name', 'instr_id']
@@ -44,10 +50,10 @@ class CourseCreateForm(forms.ModelForm):
 
 
 class LabCreateForm(forms.ModelForm):
-
     class Meta:
         model = Lab
         fields = ['section', 'ta_name']
+
 
 class UserCreateForm(forms.ModelForm):
     email = forms.EmailField()
@@ -56,9 +62,8 @@ class UserCreateForm(forms.ModelForm):
         model = User
         fields = ['username', 'email', 'password']
 
-class PersonalInfoUpdateForm(forms.ModelForm):
 
+class PersonalInfoCreateForm(forms.ModelForm):
     class Meta:
         model = PersonalInfo
         fields = ['office_hours', 'phone', 'role']
-

@@ -36,8 +36,8 @@ class Courses(object):
         #     pass #It is not a number
 
         # check if date is a datetime object
-        if not isinstance(date, datetime):
-            raise TypeError("Expected datetime but got something else instead")
+        # if not isinstance(date, datetime):
+        #     raise TypeError("Expected datetime but got something else instead")
 
         self.time = date
 

@@ -8,22 +8,6 @@ from TA_schedule.TA_Class import TA
 from TA_schedule.course import Courses
 
 
-# class Lab:
-#     def __init__(self, course=None, meetTime=None, loc='', ta=None):
-#         self.course = course
-#         self.meetTime = meetTime
-#         self.loc = loc
-#         self.ta = ta
-
-#
-# class TA:
-#     pass
-#
-#
-# class Courses:
-#     pass
-#
-
 class TestInit(unittest.TestCase):
     def setUp(self):
         self.dt = datetime.strptime("12:30 15/06/2021", "%H:%M %d/%m/%Y")
@@ -62,10 +46,6 @@ class TestGetCourse(unittest.TestCase):
 
     def test_get_course(self):
         self.assertEqual(self.lab.get_course().loc, Courses(loc='Bio').loc)
-
-    # def test_get_course_db(self):
-    #     db_courses = list(LabEnrollment.objects.filter(lab_id=self.lab).values())
-    #     self.assertEqual(self.instr2.getCourses(), db_courses.pop())
 
 
 class TestGetTA(unittest.TestCase):
