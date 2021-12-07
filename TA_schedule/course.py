@@ -75,4 +75,4 @@ class Courses(object):
         return self.labs
 
     def getTimeAndLoc(self):
-        return "Lab: " + self.loc + " starts at:" + self.time
+        return self.loc + ":" + self.time
