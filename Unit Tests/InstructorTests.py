@@ -1,7 +1,7 @@
-import django
-django.setup()
+# import django
+# django.setup()
 from django.contrib.auth.models import User
-from TA_schedule.models import Class, Lab, TAtoClass, ClassToLab, PersonalInfo
+# from TA_schedule.models import Class, Lab, TAtoClass, ClassToLab, PersonalInfo
 from TA_schedule.roles import Role
 import unittest
 from datetime import datetime

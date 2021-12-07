@@ -1,22 +1,20 @@
 from datetime import datetime
-import UserInterface
+from .UserInterface import UserInterface
 
 
-class Admin(UserInterface.UserInterface):
+class Admin(UserInterface):
 
-    def __init__(self, name=None, email=None, phone=None, address="", office_hour=None, courses=None, labs=None):
+    def __init__(self, name=None, email=None, phone='', address="", office_hour=None, courses=None, labs=None):
         self.name = name
         self.email = email
         self.phone = phone
         self.address = address
-
 
     def getName(self):
         return self.name
 
     def setName(self, name_add):
         self.name = name_add
-
 
     def setEmail(self, email_add):
         self.email = email_add
@@ -34,8 +32,7 @@ class Admin(UserInterface.UserInterface):
         self.address = addLoc
 
     def getContactInfo(self):
-        return "Email:" + self.getEmail() + "\nPhone number"+ self.getPhone()
-
+        return "Email:" + self.getEmail() + "\nPhone number" + self.getPhone()
 
     def getAddress(self):
         return self.address

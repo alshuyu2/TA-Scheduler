@@ -57,7 +57,6 @@ class CourseAdd(View):
         c_form = CourseCreateForm(request.POST)
         l_form = LabCreateForm(request.POST)
 
-
         if c_form.is_valid() and l_form.is_valid():
             c_form.save()
             l_form.save()
@@ -96,6 +95,7 @@ class Courses(View):
     def post(self, request):
         return render(request, "courses.html")
 
+
 class Labs(View):
 
     def get(self, request):
@@ -104,6 +104,7 @@ class Labs(View):
 
     def post(self, request):
         return render(request, "labs.html")
+
 
 class addLabs(View):
     def get(self, request):
@@ -117,7 +118,7 @@ class addLabs(View):
         new_ClasstoLab = ClassToLab(lab_id=new_Lab, class_id=class_add)
         new_ClasstoLab.save()
         allCourses = ClassToLab.objects.all();
-        return render(request, "labs.html",{"courses": allCourses} )
+        return render(request, "labs.html", {"courses": allCourses})
 
 
 class Profile(View):
