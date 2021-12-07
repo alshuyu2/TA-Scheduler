@@ -7,7 +7,7 @@
             <p id="labName">Lab Name:</p>
             <label for="labName" id="labName"></label>
             <input type="text" name="labName" id="labName"  required autofocus><br>
-            <p id="usernameP">Select Calss:</p>
+            <p id="usernameP">Select Class:</p>
             <select name="course" id="coursedropdown">
             {% for i in courses %}
                 <option value="{{  i.class_id.name}}">{{ i.class_id.name }}</option>

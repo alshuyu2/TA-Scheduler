@@ -5,8 +5,13 @@ import TA_schedule.course
 
 # from UserInterface import UserInterface
 
-class Instructor():
-    def __init__(self, name=None, email=None, phone=None, address="", officehours=None, courses=[], labs=[]):
+class Instructor:
+    def __init__(self, name='', email='', phone='', address="", officehours='', courses=None, labs=None):
+        if labs is None:
+            labs = []
+        if courses is None:
+            courses = []
+
         self.name = name
         self.email = email
         self.phone = phone
@@ -34,8 +39,8 @@ class Instructor():
         return self.phone
 
     def setOfficeHours(self, officeHours):
-        if not isinstance(officeHours, datetime):
-            raise TypeError("It's not of type time object")
+        # if not isinstance(officeHours, datetime):
+        #     raise TypeError("It's not of type time object")
 
         self.meetTime = officeHours
 
@@ -56,9 +61,9 @@ class Instructor():
         #     raise TypeError("The parameter is not of object course")
         # check if the course is already there
 
-        if courseAdd in self.courses:
-            raise Exception("The course is already assigned to the instructor")
-            pass
+        # if courseAdd in self.courses:
+        #     raise Exception("The course is already assigned to the instructor")
+        #     pass
 
         self.courses.append(courseAdd)
 
