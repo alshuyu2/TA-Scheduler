@@ -126,7 +126,7 @@ What I'm stuck on: Nothing at the moment.
 Time: 4:30-4:45 PM
 Attendance: All
 Tasks completed: Course, Lab and Instructor and Admin class are finished
-Tasks generated: PBIs for supervisor assigning TAs and Instructor and TA editing contact information.
+Tasks generated: PBIs for supervisor assigning TAs and Instructor and TA editing contact information.  Create acceptance tests for all our new views and pages
 
 -Adriana:
 What I've done since last time: Updated some class descriptions in our UML document and started our sprint 1 summary pdf
@@ -158,7 +158,7 @@ What I'm stuck on: Nothing at the moment.
 Time: 12:30-12:45
 Attendance: All
 Tasks completed: Progress on PBI implementation(Vince, Moh, Abdullah, Zack), views completed(Vince), Progress on Sprint 1 pdf (Adriana). 
-Tasks generated: Nothing new at the moment.
+Tasks generated: Nothing at the moment
 
 -Adriana:
 What I've done since last time: Continued on UML and pdf tasks
@@ -166,9 +166,9 @@ What I'm doing for next time: ensuring unittests run and completing the pdf as w
 What I'm stuck on:
 
 -Vince:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: write acceptance tests for login, update user info, and course addition
+What I'm doing for next time: Dealing with different views other than admin
+What I'm stuck on: How the different class type views should be implement in an object oriented way
 
 -Moh:
 What I've done since last time: Tried working on Instructor and TA PBI for editing contact information
@@ -198,7 +198,7 @@ What I'm doing for next time:
 What I'm stuck on:
 
 -Vince:
-What I've done since last time:
+What I've done since last time: 
 What I'm doing for next time:
 What I'm stuck on:
 
