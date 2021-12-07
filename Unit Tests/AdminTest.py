@@ -1,5 +1,5 @@
-import django
-django.setup()
+# import django
+# django.setup()
 
 import unittest
 from datetime import datetime
@@ -45,7 +45,7 @@ class TestInit(unittest.TestCase):
         self.assertEqual(self.admin2.name, 'John Doe')
 
     def test_admin2_email(self):
-        self.assertEqual(self.admin2.email, 'crazycookie@gmail.com')
+        self.assertEqual(self.admin2.email, 'wildmudkip@gmail.com')
 
     def test_admin2_phone(self):
         self.assertEqual(self.admin2.phone, str(4141112222))

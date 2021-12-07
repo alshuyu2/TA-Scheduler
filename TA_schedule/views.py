@@ -94,6 +94,48 @@ class Courses(View):
     def post(self, request):
         return render(request, "courses.html")
 
+class Labs(View):
+
+    def get(self, request):
+        allCourses = ClassToLab.objects.all();
+        return render(request, "labs.html", {"courses": allCourses})
+
+    def post(self, request):
+        return render(request, "labs.html")
+
+class addLabs(View):
+    def get(self, request):
+        allCourses = ClassToLab.objects.all();
+        return render(request, "addLabs.html", {"courses": allCourses})
+
+    def post(self, request):
+        # c_form = CourseCreateForm(request.POST)
+        # l_form = LabCreateForm(request.POST)
+        #
+        # if c_form.is_valid() and l_form.is_valid():
+        #     c_form.save()
+        #     l_form.save()
+        #     c = list(Class.objects.filter(name=c_form.cleaned_data.get('name')))
+        #     lab = list(Lab.objects.filter(section=l_form.cleaned_data.get('section')))
+        #     ClassToLab.objects.create(class_id=c.pop(), lab_id=lab.pop())
+        #     messages.success(request, f'Your class has been added!')
+        #     return redirect('/labs/')
+        # # else:
+        # #     return redirect('/dashboard/')
+        # context = {
+        #     'c_form': c_form,
+        #     'l_form': l_form
+        # }
+        user= User(last_name="",first_name="",username="")
+        newTA= PersonalInfo(user = user,phone = "",role = "",address ="",office_hours="")
+        class_add = Class.objects.get(name=request.POST["course"])
+        new_Lab = Lab(section=request.POST["labName"] )
+        new_Lab.save()
+        new_ClasstoLab = ClassToLab(lab_id=new_Lab, class_id=class_add)
+        new_ClasstoLab.save()
+        allCourses = ClassToLab.objects.all();
+        return render(request, "labs.html",{"courses": allCourses} )
+
 
 class Profile(View):
 

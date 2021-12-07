@@ -20,7 +20,7 @@ from django.contrib.auth import views as auth_views
 
 
 
-from TA_schedule.views import Home, DashBoard, Courses, Profile, CourseAdd, CreateAcc
+from TA_schedule.views import Home, DashBoard, Courses, Profile, CourseAdd, CreateAcc, Labs, addLabs
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,4 +32,6 @@ urlpatterns = [
     path('profile/', login_required(Profile.as_view())),
     path('addcourse/', login_required(CourseAdd.as_view())),
     path('CreateAcc/', login_required(CreateAcc.as_view())),
+    path('labs/', login_required(Labs.as_view())),
+    path('addLabs/', login_required(addLabs.as_view()))
 ]
