@@ -1,29 +1,18 @@
 import unittest
-from datetime import datetime
 import django
-from TA_schedule.models import Class, Lab
+from TA_schedule.course import Courses
+from TA_schedule.Lab import Lab
+from TA_schedule.TA_Class import TA
 
 
-class Courses:
-    # tas and labs are lists
-    def __init__(self, instr=None, time = None, loc = '', tas= None, labs = None):
-        self.instr = instr
-        self.meetTime = time
-        self.loc = loc
-        self.tas = tas
-        self.labs = labs
 
-    class TA:
-        pass
 
-    class Lab:
-        pass
 
 class TestInit(unittest.TestCase):
     def setUp(self):
-        self.dt = datetime.strptime("11:30 20/05/2021", "%H:%M %d/%m/%Y")
         self.Course = Courses()
-        self.Course1 = Courses('zac', self.dt, 'library', {"mike", "paul"}, {"CS 932"})
+
+        self.Course1 = Courses('zac', "12:00" , 'library', ["mike", "paul"], ["CS 932"])
 
     def test_default_instr(self):
         self.assertIsNone(self.Course.instr)
@@ -35,73 +24,72 @@ class TestInit(unittest.TestCase):
         self.assertEqual(self.Course.loc, '')
 
     def test_default_tas(self):
-        self.assertIsNone(self.Course.tas)
+        self.assertEqual(self.Course.tas, [])
 
-    def test_default_loc(self):
-        self.assertIsNone(self.Course.labs)
+    def test_default_labs(self):
+        self.assertEqual(self.Course.labs, [])
+
 
     def test_instr(self):
         self.assertEqual(self.Course1.instr, 'zac')
 
     def test_meetTime(self):
-        self.assertEqual(self.Course1.dt, self.dt)
+        self.assertEqual(self.Course1.time, "12:00")
 
     def test_loc(self):
         self.assertEqual(self.Course1.loc, 'library')
 
     def test_tas(self):
-        self.assertEqual(self.Course1.tas, {"mike", "paul"})
+        self.assertEqual(self.Course1.tas, ["mike", "paul"])
 
     def test_labs(self):
-        self.assertEqual(self.Course1.labs, {"CS 932"})
+        self.assertEqual(self.Course1.labs, ["CS 932"])
 
 
 class Test_getTimeAndLoc(unittest.TestCase):
     def setUp(self):
-        self.dt = datetime.strptime("11:30 20/05/2021", "%H:%M %d/%m/%Y")
-        self.Course1 = Courses('zac', self.dt, 'library', {"mike", "paul"}, {"CS 932"})
+        self.Course1 = Courses('zac', "12:00", 'library', ["mike", "paul"], ["CS 932"])
 
     def test_getTimeAndLoc(self):
-        self.assertEqual(self.course1.getTimeAndLoc(), "11:30 library")
+        self.assertEqual(self.Course1.getTimeAndLoc(), "library:12:00")
 
 
 class Test_addTas(unittest.TestCase):
     def setUp(self):
-        self.ta = "sam"
-        self.Course1 = Courses('zac', self.dt, 'library', {"mike", "paul"}, {"CS 932"})
+        self.ta = TA("cool guy")
+        self.Course1 = Courses('zac', "12:00", 'library', [], ["CS 932"])
 
     def test_addTas(self):
-        self.course1.addTAs(self.ta)
-        self.assertEqual(self.Course1.tas, {"mike", "paul", "sam"})
+        self.Course1.addTAs(self.ta)
+        self.assertEqual(self.Course1.tas, [self.ta])
 
-class Test_removeTas(unittest.TestCase):
+# class Test_removeTas(unittest.TestCase):
+#     def setUp(self):
+#         self.lab = Lab("CS 932")
+#         self.Course1 = Courses('zac', "12:00", 'library', ["mike", "paul"], self.lab)
+#
+#     def test_removeTa(self):
+#         self.Course1.removeLab(self.lab)
+#         self.assertEqual(self.Course1.tas, [])
+
+class Test_addLabs(unittest.TestCase):
     def setUp(self):
-        self.Course1 = Courses('zac', self.dt, 'library', {"mike", "paul"}, {"CS 932"})
+        self.Lab = Lab("CS 361")
+        self.Course1 = Courses('zac', "12:00", 'library', ["mike", "paul"], [])
 
-    def test_removeTa(self):
-        self.ta = "mike"
-        self.course1.removeTA(self.ta)
-
-        self.assertEqual(self.Course1.tas, {"paul"})
-
-class Test_addLab(unittest.TestCase):
-    def setUp(self):
-        self.Lab = "CA 202"
-        self.Course1 = Courses('zac', self.dt, 'library', {"mike", "paul"}, {"CS 932"})
-
-    def test_addTas(self):
-        self.course1.addLab(self.Lab)
-        self.assertEqual(self.course1.labs, {"CS 932", "CA 202"})
+    def test_addLabs(self):
+        self.Course1.addLabs(self.Lab)
+        self.assertEqual(self.Course1.labs, [self.Lab])
 
 
-class Test_removeLab(unittest.TestCase):
-    def setUp(self):
-        self.Course1 = Courses('zac', self.dt, 'library', {"mike", "paul"}, {"CS 932", "CS 212"})
-
-    def test_removeLab(self):
-        self.Lab = "CS 932"
-        self.course1.removeLab(self.Lab)
-        self.assertEqual(self.Course1.labs, {"CS 212"})
+# class Test_removeLab(unittest.TestCase):
+#     def setUp(self):
+#         self.Course1 = Courses('zac', "12:00", 'library', ["mike", "paul"], ["CS 932", "CS 212"])
+#
+#     def test_removeLab(self):
+#         self.Lab = Lab("CS 932")
+#         self.Course1.removeLab(self.Lab)
+#         self.assertEqual(self.Course1.labs, ["CS 212"])
 """
 test_good_Set_Loc(self):
         #Pre: para is a string
