@@ -177,9 +177,9 @@ What I'm doing for next time: Working on Unittests and making sure everything is
 What I'm stuck on: Was stuck on the PBI and implementation for forms,
 
 -Zack:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on: 
+What I've done since last time: Created the HTML and got create accounts to work on the app
+What I'm doing for next time: Doing Acceptance Tests
+What I'm stuck on: nothing at the moment 
 
 -Abdullah:
 What I've done since last time:I added the Labs HTML file and started working on adding the Labs to classes and saving those in the database.
