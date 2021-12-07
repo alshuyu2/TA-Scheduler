@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+   <div class="content-section">
+        <form method = "POST" action="/addLabs/">
+            {% csrf_token %}
+            <p id="labName">Lab Name:</p>
+            <label for="labName" id="labName"></label>
+            <input type="text" name="labName" id="labName"  required autofocus><br>
+            <p id="usernameP">Select Calss:</p>
+            <select name="course" id="coursedropdown">
+            {% for i in courses %}
+                <option value="{{  i.class_id.name}}">{{ i.class_id.name }}</option>
+            {% endfor %}
+            </select>
+{#            <fieldset class="form-group">#}
+{#                <legend class="border-bottom mb-4">Create Labs</legend>#}
+{#                {{ c_form|crispy }}#}
+{#                {{ l_form|crispy }}#}
+{##}
+{#            </fieldset>#}
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

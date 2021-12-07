@@ -96,6 +96,29 @@ class Courses(View):
     def post(self, request):
         return render(request, "courses.html")
 
+class Labs(View):
+
+    def get(self, request):
+        allCourses = ClassToLab.objects.all();
+        return render(request, "labs.html", {"courses": allCourses})
+
+    def post(self, request):
+        return render(request, "labs.html")
+
+class addLabs(View):
+    def get(self, request):
+        allCourses = ClassToLab.objects.all();
+        return render(request, "addLabs.html", {"courses": allCourses})
+
+    def post(self, request):
+        class_add = Class.objects.get(name=request.POST["course"])
+        new_Lab = Lab(section=request.POST["labName"])
+        new_Lab.save()
+        new_ClasstoLab = ClassToLab(lab_id=new_Lab, class_id=class_add)
+        new_ClasstoLab.save()
+        allCourses = ClassToLab.objects.all();
+        return render(request, "labs.html",{"courses": allCourses} )
+
 
 class Profile(View):
 
