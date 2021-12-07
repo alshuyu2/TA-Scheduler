@@ -2,6 +2,8 @@ import unittest
 from datetime import datetime
 import django
 from TA_schedule.course import Courses
+from TA_schedule.Lab import Lab
+from TA_schedule.TA_Class import TA
 
 
 class TestInit(unittest.TestCase):
@@ -20,7 +22,12 @@ class TestInit(unittest.TestCase):
         self.assertEqual(self.Course.loc, '')
 
     def test_default_tas(self):
-        self.assertListEqual(self.Course.tas, [])
+
+        self.assertEqual(self.Course.tas, [])
+
+    def test_default_labs(self):
+        self.assertEqual(self.Course.labs, [])
+
 
     def test_default_loc(self):
         self.assertEqual(self.Course.loc, '')
@@ -29,7 +36,8 @@ class TestInit(unittest.TestCase):
         self.assertEqual(self.Course1.instr, 'zac')
 
     def test_meetTime(self):
-        self.assertEqual(self.Course1.time, self.dt)
+        self.assertEqual(self.Course1.time, "12:00")
+
 
     def test_loc(self):
         self.assertEqual(self.Course1.loc, 'library')

@@ -123,10 +123,10 @@ What I'm doing for next time: Statrt Implemeting the classes I wrote unit tests 
 What I'm stuck on: Nothing at the moment.
 
 12/03/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
-Time: 
-Attendance:
-Tasks completed:
-Tasks generated:
+Time: 4:30-4:45 PM
+Attendance: All
+Tasks completed: Course, Lab and Instructor and Admin class are finished
+Tasks generated: PBIs for supervisor assigning TAs and Instructor and TA editing contact information.  Create acceptance tests for all our new views and pages
 
 -Adriana:
 What I've done since last time: Updated some class descriptions in our UML document and started our sprint 1 summary pdf
@@ -139,9 +139,9 @@ What I'm doing for next time: writing acceptance tests for all pbis that this co
 What I'm stuck on: how to get form fields from the request object
 
 -Moh:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Worked on Course and Instructor classes
+What I'm doing for next time: Working on the PBI for editing TA and Instructor contact information. 
+What I'm stuck on: Nothing at the moment
 
 -Zack:
 What I've done since last time: Completed the methods for Courses and Instructor and helped merge brances into main 
@@ -155,11 +155,10 @@ What I'm stuck on: Nothing at the moment.
 
 
 12/05/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
- *Copy and paste this template for the next meeting before filling in for an easier life
-Time: 
-Attendance:
-Tasks completed:
-Tasks generated:
+Time: 12:30-12:45
+Attendance: All
+Tasks completed: Progress on PBI implementation(Vince, Moh, Abdullah, Zack), views completed(Vince), Progress on Sprint 1 pdf (Adriana). 
+Tasks generated: Nothing at the moment
 
 -Adriana:
 What I've done since last time: Continued on UML and pdf tasks
@@ -167,19 +166,19 @@ What I'm doing for next time: ensuring unittests run and completing the pdf as w
 What I'm stuck on:
 
 -Vince:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: write acceptance tests for login, update user info, and course addition
+What I'm doing for next time: Dealing with different views other than admin
+What I'm stuck on: How the different class type views should be implement in an object oriented way
 
 -Moh:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Tried working on Instructor and TA PBI for editing contact information
+What I'm doing for next time: Working on Unittests and making sure everything is running correctly.
+What I'm stuck on: Was stuck on the PBI and implementation for forms,
 
 -Zack:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on: 
+What I've done since last time: Did the HTML and got Create acc. to work on the app 
+What I'm doing for next time: Work on the Acceptance Tests for Create Acc.
+What I'm stuck on: Nothing at the moment.
 
 -Abdullah:
 What I've done since last time:I added the Labs HTML file and started working on adding the Labs to classes and saving those in the database.
@@ -199,7 +198,7 @@ What I'm doing for next time:
 What I'm stuck on:
 
 -Vince:
-What I've done since last time:
+What I've done since last time: 
 What I'm doing for next time:
 What I'm stuck on:
 
