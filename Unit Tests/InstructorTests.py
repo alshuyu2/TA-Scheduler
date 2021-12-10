@@ -15,7 +15,7 @@ class TestInit(unittest.TestCase):
         self.course_list = [Courses(instr=self.instr.name), Courses(instr=self.instr.name)]
         self.instr2 = Instructor(name='John Doe', email='wildmudkip@gmail.com', phone='4141112222',
                                  address='South street', courses=self.course_list,
-                                 officehours=self.dt)
+                                 office_hours=self.dt)
 
     def test_default_instr_name(self):
         self.assertEqual(self.instr.name, '')
@@ -67,7 +67,7 @@ class TestGetCourses(unittest.TestCase):
         # PersonalInfo(user_id=self.user, phone='4141112222', role=Role.INSTRUCTOR, address='South street').save()
 
     def test_get_course(self):
-        self.assertEqual(self.instr2.courses, self.instr2.getMyCourses())
+        self.assertEqual(self.instr2.courses, self.instr2.get_courses())
     #
     # def test_get_course_db(self):
     #     db_courses = list(PersonalInfo.objects.filter(user_id='John Johnathon').values())

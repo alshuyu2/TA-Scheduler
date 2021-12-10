@@ -9,6 +9,8 @@ class Admin(UserInterface):
         self.email = email
         self.phone = phone
         self.address = address
+        self.courses = courses
+        self.labs = labs
 
     def getName(self):
         return self.name
@@ -33,6 +35,9 @@ class Admin(UserInterface):
 
     def getContactInfo(self):
         return "Email:" + self.getEmail() + "\nPhone number" + self.getPhone()
+
+    def get_courses(self):
+        return self.courses
 
     def getAddress(self):
         return self.address
