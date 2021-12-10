@@ -9,10 +9,10 @@ class TestInit(unittest.TestCase):
     def setUp(self):
         # self.dt = datetime.strptime("12:30 15/06/2021", "%H:%M %d/%m/%Y")
         self.ta = TA()
-        self.example_ta = TA('Adriana', 'morale74@uwm.edu', '1234567890', 'kenwood blvd',  "12", [901])
+        self.example_ta = TA('Adriana', 'morale74@uwm.edu', '1234567890', 'kenwood blvd',  "12", None, [901])
 
     def test_default_ta_name(self):
-        self.assertEqual(self.ta.get_name(), '', "Default TA name is not as expected")
+        self.assertEqual(self.ta.getName(), '', "Default TA name is not as expected")
 
     def test_default_ta_email(self):
         self.assertEqual(self.ta.email, '', "Default TA email is not as expected")
@@ -72,19 +72,19 @@ class TestGetters(unittest.TestCase):
         self.example_ta = TA('Adriana', 'morale74@uwm.edu', '1234567890', 'kenwood blvd', "12", [901])
 
     def test_default_get_name(self):
-        a = self.ta.get_name()
+        a = self.ta.getName()
         self.assertEqual(a, '', "Cannot call get_name on a null field")
 
     def test_default_get_email(self):
-        a = self.ta.get_email()
+        a = self.ta.getEmail()
         self.assertEqual(a, '', "Cannot call get_email on a null field")
 
     def test_default_get_phone(self):
-        a = self.ta.get_phone()
+        a = self.ta.getPhone()
         self.assertEqual(a, '', "GetPhone is not working as expected")
 
     def test_default_get_address(self):
-        a = self.ta.get_address()
+        a = self.ta.getAddress()
         self.assertEqual(a, '', "GetAddress is not working as expected")
 
     def test_default_get_labs(self):
@@ -102,15 +102,15 @@ class TestGetters(unittest.TestCase):
     #                      "GetContactInfo is not working as expected")
 
     def test_given_get_name(self):
-        a = self.example_ta.get_name()
+        a = self.example_ta.getName()
         self.assertEquals(a, 'Adriana', "GetName is not working as expected")
 
     def test_given_get_phone(self):
-        a = self.example_ta.get_phone()
+        a = self.example_ta.getPhone()
         self.assertEqual(a, '1234567890', "GetPhone is  working as expected")
 
     def test_given_get_address(self):
-        a = self.example_ta.get_address()
+        a = self.example_ta.getAddress()
         self.assertEqual(a, 'kenwood blvd', "GetAddress is not working as expected")
 
     # def test_given_get_labs(self):
@@ -133,43 +133,43 @@ class TestSetters(unittest.TestCase):
         self.example_ta = TA('Adriana', 'morale74@uwm.edu', '1234567890', 'kenwood blvd', "12", [901])
 
     def test_default_set_name(self):
-        self.ta.set_name('Ben')
-        a = self.ta.get_name()
+        self.ta.setName('Ben')
+        a = self.ta.getName()
         self.assertEqual(a, 'Ben', "Set name is not working as expected")
 
     def test_given_set_name(self):
-        self.example_ta.set_name('Ben')
-        a = self.example_ta.get_name()
+        self.example_ta.setName('Ben')
+        a = self.example_ta.getName()
         self.assertEqual(a, 'Ben', "Set name is not working as expected")
 
     def test_default_set_email(self):
         self.ta.set_email('morale74@uwm.edu')
-        a = self.ta.get_email()
+        a = self.ta.getEmail()
         self.assertEqual(a, 'morale74@uwm.edu', "Set email is not working as expected")
 
     def test_given_set_email(self):
         self.example_ta.set_email('noname@uwm.edu')
-        a = self.example_ta.get_email()
+        a = self.example_ta.getEmail()
         self.assertEqual(a, 'noname@uwm.edu', "Set email is not working as expected")
 
     def test_default_set_phone(self):
-        self.ta.set_phone('1234567890')
-        a = self.ta.get_phone()
+        self.ta.setPhone('1234567890')
+        a = self.ta.getPhone()
         self.assertEqual(a, '1234567890', "Set phone is not working as expected")
 
     def test_given_set_phone(self):
-        self.example_ta.set_phone('0987654321')
-        a = self.example_ta.get_phone()
+        self.example_ta.setPhone('0987654321')
+        a = self.example_ta.getPhone()
         self.assertEqual(a, '0987654321', "Set phone is not working as expected")
 
     def test_default_set_address(self):
-        self.ta.set_address('oakland ave')
-        a = self.ta.get_address()
+        self.ta.setAddress('oakland ave')
+        a = self.ta.getAddress()
         self.assertEqual(a, 'oakland ave', "Set address is not working as expected")
 
     def test_given_set_address(self):
-        self.example_ta.set_address('oakland ave')
-        a = self.example_ta.get_address()
+        self.example_ta.setAddress('oakland ave')
+        a = self.example_ta.getAddress()
         self.assertEqual(a, 'oakland ave', "Set address is not working as expected")
 
     def test_default_set_hours(self):

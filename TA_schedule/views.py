@@ -78,6 +78,12 @@ class CourseAdd(View):
 class Courses(View):
 
     def get(self, request):
+
+        # TODO this will have to be done in every method or in init possibly.
+        #  all info will be in usr object now
+        fact = UserFactory()
+        usr = fact.get_user(request.user.personalinfo)
+        print(type(usr), usr.getName(), usr.get_courses(), usr.get_labs())
         course_lab_list = []
 
         course_list = list(Class.objects.all())
