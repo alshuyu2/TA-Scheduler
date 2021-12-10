@@ -203,9 +203,9 @@ What I'm doing for next time:
 What I'm stuck on:
 
 -Moh:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Making sure every test ran perfectly.
+What I'm doing for next time: Talking about the retrospective
+What I'm stuck on: None so far.
 
 -Zack:
 What I've done since last time: 
@@ -235,9 +235,9 @@ What I'm doing for next time:
 What I'm stuck on:
 
 -Moh:
-What I've done since last time:
-What I'm doing for next time: 
-What I'm stuck on:
+What I've done since last time: Talked about the retrospective 
+What I'm doing for next time: Implementing the deleting account PBI for supervisor
+What I'm stuck on: Getting used to the template
 
 -Zack:
 What I've done since last time: 
