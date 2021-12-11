@@ -187,10 +187,10 @@ What I'm stuck on: Nothing at the moment.
 
 12/07/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
  *Copy and paste this template for the next meeting before filling in for an easier life
-Time: 
-Attendance:
-Tasks completed:
-Tasks generated:
+Time: 5:00-5:15
+Attendance: Everyone
+Tasks completed: Sprint 1 review prep
+Tasks generated: Sprint 2 backlog refinement
 
 -Adriana:
 What I've done since last time:
@@ -198,9 +198,9 @@ What I'm doing for next time:
 What I'm stuck on:
 
 -Vince:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: worked with the rest of the group to make sure everything was integrated properly and working
+What I'm doing for next time: Working on implementing OOP
+What I'm stuck on: Nothing
 
 -Moh:
 What I've done since last time: Making sure every test ran perfectly.
@@ -219,10 +219,10 @@ What I'm stuck on:
 
 12/10/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
  *Copy and paste this template for the next meeting before filling in for an easier life
-Time: 
-Attendance:
-Tasks completed:
-Tasks generated:
+Time: 4:30-4:45
+Attendance: Vince, Moh, Zack, Abdullah
+Tasks completed: Sprint 2 backlog refinement and assigning tasks to each member
+Tasks generated: more OOP integration, lab to tas, optional form fields
 
 -Adriana:
 What I've done since last time:
@@ -230,9 +230,9 @@ What I'm doing for next time:
 What I'm stuck on:
 
 -Vince:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Implemented userfactory rough draft
+What I'm doing for next time: Course form to have optional fields
+What I'm stuck on: Nothing
 
 -Moh:
 What I've done since last time: Talked about the retrospective 
