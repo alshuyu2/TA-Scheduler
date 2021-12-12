@@ -207,9 +207,9 @@ What I'm doing for next time: Talking about the retrospective
 What I'm stuck on: None so far.
 
 -Zack:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on: 
+What I've done since last time: finished create account tests and Helped with making tests pass in main  
+What I'm doing for next time: Working on the retrospective
+What I'm stuck on: Nothing right now.
 
 -Abdullah:
 What I've done since last time: 
@@ -238,9 +238,9 @@ What I'm doing for next time: Implementing the deleting account PBI for supervis
 What I'm stuck on: Getting used to the template
 
 -Zack:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on: 
+What I've done since last time: did the retrospecitve and worked a little more on create account
+What I'm doing for next time: Work on saving passwords for a new user
+What I'm stuck on: Nothing right now. 
 
 -Abdullah:
 What I've done since last time: 
