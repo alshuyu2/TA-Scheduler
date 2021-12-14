@@ -18,9 +18,8 @@ from django.contrib.auth.decorators import login_required
 from django.urls import path
 from django.contrib.auth import views as auth_views
 
-
-
-from TA_schedule.views import Home, DashBoard, Courses, Profile, CourseAdd, CreateAcc, Labs, addLabs
+from TA_schedule.views import Home, DashBoard, Courses, Profile, CourseAdd, CreateAcc, Labs, addLabs,\
+    AddTAtoCourse, PublicInfo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,5 +32,7 @@ urlpatterns = [
     path('addcourse/', login_required(CourseAdd.as_view())),
     path('CreateAcc/', login_required(CreateAcc.as_view())),
     path('labs/', login_required(Labs.as_view())),
-    path('addLabs/', login_required(addLabs.as_view()))
+    path('addLabs/', login_required(addLabs.as_view())),
+    path('addtatocourse/', login_required(AddTAtoCourse.as_view())),
+    path('publicinformation/', login_required(PublicInfo.as_view())),
 ]

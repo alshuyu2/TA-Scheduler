@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+   <div class="content-section">
+        <form method = "POST">
+            {% csrf_token %}
+            <legend class="border-bottom mb-4">Assign a TA to a course</legend>
+            <fieldset class="form-group"> {# text-center ?#}
+                {{ ta_form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

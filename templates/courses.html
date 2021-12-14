@@ -6,7 +6,10 @@
             {% csrf_token %}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">{{ user.username }} - Courses</legend>
-                <a class="btn btn-info btn-lg" href="/addcourse/" role="button">Add Course</a>
+                {% if user.personalinfo.role == '1' %}
+                    <a class="btn btn-info btn-lg" href="/addcourse/" role="button">Add Course</a>
+                    <a class="btn btn-info btn-lg" href="/addtatocourse/" role="button">Assign TA</a>
+                {% endif %}
             </fieldset>
             <div class="row justify-content-center">
             <table class="table">
