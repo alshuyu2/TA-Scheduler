@@ -2,19 +2,9 @@ from django.contrib.auth.models import User
 from TA_schedule.models import Class, Lab, TAtoClass, ClassToLab, PersonalInfo
 from TA_schedule.roles import Role
 
-
-# TODO import properly
-
-class Instructor:
-    pass
-
-
-class TA:
-    pass
-
-
-class Admin:
-    pass
+from .admin_class import Admin
+from .TA_Class import TA
+from .instructor import Instructor
 
 
 # take in database call to user.
@@ -29,14 +19,17 @@ class UserFactory:
 
     def get_user(self, p_info: PersonalInfo):
         fields = {
-            # "name": str(p_info.user_id.first_name + ' ' + p_info.user_id.last_name),
-            "email": str(p_info.user_id.email),
+            "name": str(p_info.user.username),
+            "email": str(p_info.user.email),
             "phone": int(p_info.phone),
             "address": str(p_info.address),
             "office_hours": str(p_info.office_hours),
-            "courses": list(Class.objects.filter(instr_id=p_info.user_id).values_list()),
-            "labs": list(Lab.objects.filter(ta_name=p_info.user_id).values_list())
+            "courses": list(Class.objects.filter(instr_id=p_info.user).values_list()),
+            "labs": list(Lab.objects.filter(ta_name=p_info.user).values_list())
         }
+        if p_info.role == Role.ADMIN:
+            fields['courses'] = list(Class.objects.all())
+            fields['labs'] = list(Lab.objects.all())
         # ** unpacks dict
         # * unpacks list
         return self._creator[p_info.role](**fields)

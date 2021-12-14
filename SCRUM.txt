@@ -186,7 +186,69 @@ What I'm doing for next time: Finish adding Labs to courses and Implement accept
 What I'm stuck on: Nothing at the moment.
 
 12/07/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
- *Copy and paste this template for the next meeting before filling in for an easier life
+Time: 5:00-5:15
+Attendance: Everyone
+Tasks completed: Sprint 1 review prep
+Tasks generated: Sprint 2 backlog refinement
+
+-Adriana:
+What I've done since last time: Completed sprint 1 summary and helped debug tests
+What I'm doing for next time:Setting up our sprint 2 summary and adding new PBIs
+What I'm stuck on: currently nothing
+
+-Vince:
+What I've done since last time: worked with the rest of the group to make sure everything was integrated properly and working
+What I'm doing for next time: Working on implementing OOP
+What I'm stuck on: Nothing
+
+-Moh:
+What I've done since last time: Making sure every test ran perfectly.
+What I'm doing for next time: Talking about the retrospective
+What I'm stuck on: None so far.
+
+-Zack:
+What I've done since last time: finished create account tests and Helped with making tests pass in main  
+What I'm doing for next time: Working on the retrospective
+What I'm stuck on: Nothing right now.
+
+-Abdullah:
+What I've done since last time: 
+What I'm doing for next time:
+What I'm stuck on:
+
+12/10/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Time: 4:30-4:45
+Attendance: Vince, Moh, Zack, Abdullah
+Tasks completed: Sprint 2 backlog refinement and assigning tasks to each member
+Tasks generated: more OOP integration, lab to tas, optional form fields
+
+-Adriana:
+What I've done since last time: Set up the sprint 2 summary and added the PBIs we will be implementing to it
+What I'm doing for next time:Make progress on acceptance tests for TA to Lab
+What I'm stuck on: anticipating issues with git on my pycharm, created a new project from our current repository and working from that one to hopefully mitigate
+
+-Vince:
+What I've done since last time: Implemented userfactory rough draft
+What I'm doing for next time: Course form to have optional fields
+What I'm stuck on: Nothing
+
+-Moh:
+What I've done since last time: Talked about the retrospective 
+What I'm doing for next time: Implementing the deleting account PBI for supervisor
+What I'm stuck on: Getting used to the template
+
+-Zack:
+What I've done since last time: did the retrospecitve and worked a little more on create account
+What I'm doing for next time: Work on saving passwords for a new user
+What I'm stuck on: Nothing right now. 
+
+-Abdullah:
+What I've done since last time: 
+What I'm doing for next time:
+What I'm stuck on:
+
+12/14/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
+ **********************************DELETE THIS LINE after copy and paste - *Copy and paste this template for the next meeting before filling in for an easier life
 Time: 
 Attendance:
 Tasks completed:

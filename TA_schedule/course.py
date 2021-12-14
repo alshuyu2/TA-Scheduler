@@ -9,13 +9,14 @@ import TA_schedule.Lab
 # import labs
 
 # we can import stack overflow
-class Courses(object):
+class Courses:
     def __init__(self, instr=None, time=None, loc="", tas=[], labs=[]):
         self.instr = instr
         self.time = time
         self.loc = loc
         self.tas = tas
         self.labs = labs
+
 
     def getMeetTime(self):
         # if(self.time is None):
