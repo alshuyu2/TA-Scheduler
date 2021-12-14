@@ -8,12 +8,14 @@ from django.views import View
 from .UserFactory import UserFactory
 from .Lab import Lab
 from .forms import UserUpdateForm, PersonalInfoUpdateForm, CourseCreateForm, LabCreateForm, UserCreateForm, \
-    PersonalInfoCreateForm
+    PersonalInfoCreateForm, TAtoCourseAddForm
 # from .forms import UserUpdateForm, PersonalInfoUpdateForm, UserCreateForm
 
 from django.core.exceptions import ObjectDoesNotExist
 
 from .models import PersonalInfo, Class, Lab, ClassToLab, TAtoClass
+from .roles import Role
+
 
 
 @receiver(post_save, sender=User)
@@ -57,6 +59,9 @@ class CourseAdd(View):
         c_form = CourseCreateForm(request.POST)
         l_form = LabCreateForm(request.POST)
 
+        # TODO added elif may be wrong
+        # Option 1: both froms are valid and we need to make classtolab object
+        # Option 2: c_form is valid and we only create a course. no lab is created, so no CTL needed
         if c_form.is_valid() and l_form.is_valid():
             c_form.save()
             l_form.save()
@@ -64,10 +69,12 @@ class CourseAdd(View):
             c = list(Class.objects.filter(name=c_form.cleaned_data.get('name')))
             lab = list(Lab.objects.filter(section=l_form.cleaned_data.get('section')))
             ClassToLab.objects.create(class_id=c.pop(), lab_id=lab.pop())
+            messages.success(request, f'Your class and lab has been added!')
+            return redirect('/courses/')
+        elif c_form.is_valid():
+            c_form.save()
             messages.success(request, f'Your class has been added!')
             return redirect('/courses/')
-        # else:
-        #     return redirect('/dashboard/')
         context = {
             'c_form': c_form,
             'l_form': l_form
@@ -76,26 +83,29 @@ class CourseAdd(View):
 
 
 class Courses(View):
+    def __init__(self):
+        self.fact = UserFactory()
 
     def get(self, request):
 
         # TODO this will have to be done in every method or in init possibly.
         #  all info will be in usr object now
-        fact = UserFactory()
-        usr = fact.get_user(request.user.personalinfo)
-        print(type(usr), usr.getName(), usr.get_courses(), usr.get_labs())
-        course_lab_list = []
+        # fact = UserFactory()
+        usr = self.fact.get_user(request.user.personalinfo)
+        # print(type(usr), usr.getName(), usr.get_courses(), usr.get_labs())
 
-        course_list = list(Class.objects.all())
-        for i in course_list:
+        course_lab_list = []
+        # course_list = list(Class.objects.all())
+        for i in usr.get_courses():
             class_lab_list = list(ClassToLab.objects.filter(class_id=i))
             lab_list = []
+            ta_to_class = list(TAtoClass.objects.filter(class_name=i, ta_name__personalinfo__role=Role.TA))
             ta_name = []
             for j in class_lab_list:
                 lab_list.append(j.lab_id.section)
-                ta_name.append(j.lab_id.ta_name)
+            for j in ta_to_class:
+                ta_name.append(j.ta_name.username)
             course_lab_list.append((i, lab_list, ta_name))
-        # lab_list = ClassToLab.objects.filter()
         return render(request, "courses.html", {"courses": course_lab_list})
 
     def post(self, request):
@@ -190,3 +200,35 @@ class CreateAcc(View):
         }
         messages.error(request, f'Your account could not be Created')
         return render(request, "CreateAcc.html", context)
+
+
+class AddTAtoCourse(View):
+
+    def get(self, request):
+        ta_form = TAtoCourseAddForm()
+        context = {
+            'ta_form': ta_form
+        }
+        return render(request, "addtatocourse.html", context)
+
+    def post(self, request):
+        ta_form = TAtoCourseAddForm(request.POST)
+
+        if ta_form.is_valid():
+            ta_form.save()
+            messages.success(request, f'The ta has been added to the course')
+            return redirect('/courses/')
+        context = {
+            'ta_form': ta_form
+        }
+        messages.error(request, f'The ta was not able to be added to the course')
+        return render(request, "addtatocourse.html", context)
+
+
+class PublicInfo(View):
+    def get(self, request):
+
+        return render(request, "publicinformation.html")
+
+    def post(self, request):
+        return render(request, "publicinformation.html")

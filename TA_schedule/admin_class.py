@@ -4,13 +4,17 @@ from .UserInterface import UserInterface
 
 class Admin(UserInterface):
 
-    def __init__(self, name=None, email=None, phone='', address="", office_hour=None, courses=None, labs=None):
+    def __init__(self, name=None, email=None, phone='', address="", office_hours=None, courses=None, labs=None):
         self.name = name
         self.email = email
         self.phone = phone
         self.address = address
         self.courses = courses
         self.labs = labs
+        self.office_hours = office_hours
+
+    def get_labs(self):
+        return self.office_hours
 
     def getName(self):
         return self.name

@@ -8,87 +8,76 @@
             </fieldset>
             <div class="card-deck card-columns">
 
-{#                <div class="card">#}
                     <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="/profile/">
-    {#              <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">#}
                   <div class="card-body">
                     <h4 class="card-title">Edit Profile</h4>
                     <p class="card-text">
                       Change your first and last name, email, phone, or office hours.
                     </p>
-{#                    <a href="#!" class="btn btn-info">Go somewhere</a>#}
                   </div>
                     </a>
-{#                </div>#}
 
-{#                <div class="card">#}
                     <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="/courses/">
-    {#              <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">#}
                   <div class="card-body">
                     <h4 class="card-title">Courses</h4>
                     <p class="card-text">
                       Change the courses associated with users.
                     </p>
-{#                    <a href="#!" class="btn btn-info">Go somewhere</a>#}
                   </div>
                     </a>
-{#                </div>#}
 
 
-{#            <div class="card">#}
                 <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="/labs/">
-    {#              <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">#}
                   <div class="card-body">
                     <h4 class="card-title">Lab</h4>
                     <p class="card-text">
                       View and edit lab assignments
                     </p>
-{#                    <a href="#!" class="btn btn-info">Go somewhere</a>#}
                   </div>
                 </a>
                 </div>
 
 
-
-
             <div class="card-deck card-columns">
-
                 <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="#">
-    {#              <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">#}
                   <div class="card-body">
                     <h4 class="card-title">Assignments</h4>
                     <p class="card-text">
                       View course and lab assignments
                     </p>
-{#                    <a href="#!" class="btn btn-info">Go somewhere</a>#}
                   </div>
                 </a>
 
 
-
-
-                <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="#">
-    {#              <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">#}
+                <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="/publicinformation/">
                   <div class="card-body">
                     <h4 class="card-title">Public info</h4>
                     <p class="card-text">
                       View user's public information
                     </p>
-{#                    <a href="#!" class="btn btn-info">Go somewhere</a>#}
                   </div>
+                </a>
+
+                {% if user.personalinfo.role == '1' %}
+                    <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="/CreateAcc/">
+                        <div class="card-body">
+                            <h4 class="card-title">Create Account</h4>
+                            <p class="card-text">
+                                Create an account for a new user
+                            </p>
+                        </div>
                     </a>
 
-                <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="/CreateAcc/">
-    {#              <img class="card-img-top" src="/images/pathToYourImage.png" alt="Card image cap">#}
-                    <div class="card-body">
-                    <h4 class="card-title">Create Account</h4>
-                    <p class="card-text">
-                      Create an account for a new user
-                    </p>
-{#                    <a href="#!" class="btn btn-info">Go somewhere</a>#}
-                  </div>
+                {% elif user.personalinfo.role == '3' %}
+                    <a class="card card-block stretched-link text-dark shadow bg-light rounded" href="#">
+                        <div class="card-body">
+                            <h4 class="card-title">My skills</h4>
+                            <p class="card-text">
+                                Enter or view your skills that instructors will be able to view
+                            </p>
+                        </div>
                     </a>
-
+                {% endif %}
 
             </div>
 
