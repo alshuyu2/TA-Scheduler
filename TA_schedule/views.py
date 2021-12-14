@@ -13,7 +13,7 @@ from .forms import UserUpdateForm, PersonalInfoUpdateForm, CourseCreateForm, Lab
 
 from django.core.exceptions import ObjectDoesNotExist
 
-from .models import PersonalInfo, Class, Lab, ClassToLab
+from .models import PersonalInfo, Class, Lab, ClassToLab, TAtoClass
 
 
 @receiver(post_save, sender=User)
@@ -115,11 +115,15 @@ class Labs(View):
 class addLabs(View):
     def get(self, request):
         allCourses = ClassToLab.objects.all();
-        return render(request, "addLabs.html", {"courses": allCourses})
+        allTA= PersonalInfo.objects.filter(role=3);
+        # # allTA = PersonalInfo.objects.all();
+        # allTAs = PersonalInfo.objects.all();
+        # allTAa = TAtoClass.objects.all();
+        return render(request, "addLabs.html", {"courses": allCourses, "TAs" : allTA})
 
     def post(self, request):
         class_add = Class.objects.get(name=request.POST["course"])
-        new_Lab = Lab(section=request.POST["labName"])
+        new_Lab = Lab(section=request.POST["labName"], ta_name= request.POST["TAa"])
         new_Lab.save()
         new_ClasstoLab = ClassToLab(lab_id=new_Lab, class_id=class_add)
         new_ClasstoLab.save()
