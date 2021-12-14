@@ -13,6 +13,15 @@
                 <option value="{{  i.class_id.name}}">{{ i.class_id.name }}</option>
             {% endfor %}
             </select>
+
+            <p id="usernameTA">Select TA:</p>
+            <select name="TAa" id="TAsDropdown">
+            {% for i in TAs %}
+{#                <option value="{{  i.TAtoClass_id.ta_name}}">{{ i.TAtoClass_id.ta_name }}</option>#}
+{#                 <option value="{{  i.PersonalInfo_id.role}}">{{ i.PersonalInfo_id.role }}</option>}#}
+                <option value="{{  i.user}}">{{ i.user }}</option>
+            {% endfor %}
+            </select>
 {#            <fieldset class="form-group">#}
 {#                <legend class="border-bottom mb-4">Create Labs</legend>#}
 {#                {{ c_form|crispy }}#}
