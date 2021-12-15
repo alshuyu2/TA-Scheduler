@@ -35,7 +35,7 @@ class CourseCreateForm(forms.ModelForm):
         fields = ['name', 'instr_id']
 
     def clean(self):
-        cleaned_data = self.cleaned_dataf
+        cleaned_data = self.cleaned_data
         name = cleaned_data.get('name')
 
         try:

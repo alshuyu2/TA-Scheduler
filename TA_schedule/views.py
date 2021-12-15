@@ -187,21 +187,20 @@ class CreateAcc(View):
         p_form = PersonalInfoCreateForm(request.POST)
         # instead of update, create new
 
-        print("before validation")
+        # print("before validation")
         if u_form.is_valid(): # and p_form.is_valid()
             u_form.save()
             name = User.objects.get(username=request.POST['username'])
             print(name)
             p_form = PersonalInfoCreateForm(request.POST, instance=PersonalInfo.objects.filter(user=name).first())
             if p_form.is_valid():
-                print('valid p_form')
+                # print('valid p_form')
                 p_form.save()
-            else:
-                print('invalid p_form')
-            print("im about to redirect")
+            # else:
+            #     print('invalid p_form')
+            # print("im about to redirect")
             messages.success(request, f'Your account has been Created!')
             return redirect('/dashboard/')
-
         context = {
             'u_form': u_form,
             # 'p_form': p_form
