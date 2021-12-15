@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import PersonalInfo, Class, Lab, TAtoClass
 
@@ -34,7 +35,7 @@ class CourseCreateForm(forms.ModelForm):
         fields = ['name', 'instr_id']
 
     def clean(self):
-        cleaned_data = self.cleaned_data
+        cleaned_data = self.cleaned_dataf
         name = cleaned_data.get('name')
 
         try:
@@ -62,12 +63,12 @@ class LabCreateForm(forms.ModelForm):
         self.fields['ta_name'].required = False
 
 
-class UserCreateForm(forms.ModelForm):
+class UserCreateForm(UserCreationForm):
     email = forms.EmailField()
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']
+        fields = ['username', 'email']
 
 
 class PersonalInfoCreateForm(forms.ModelForm):
@@ -81,8 +82,15 @@ class TAtoCourseAddForm(forms.ModelForm):
         model = TAtoClass
         fields = ['class_name', 'ta_name']
 
+
     def __init__(self, *args, **kwargs):
         super(TAtoCourseAddForm, self).__init__(*args, **kwargs)
         self.fields['ta_name'].queryset = User.objects.filter(personalinfo__role=Role.TA)
         # self.fields['class_name'].widget.attrs['style'] = 'width:400px; height:40px;'
         # self.fields['ta_name'].widget.attrs['style'] = 'width:400px; height:40px;'
+
+
+class SkillsUpdateForm(forms.ModelForm):
+    class Meta:
+        model = PersonalInfo
+        fields = ['skills']

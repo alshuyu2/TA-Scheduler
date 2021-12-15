@@ -8,7 +8,7 @@ from django.views import View
 from .UserFactory import UserFactory
 from .Lab import Lab
 from .forms import UserUpdateForm, PersonalInfoUpdateForm, CourseCreateForm, LabCreateForm, UserCreateForm, \
-    PersonalInfoCreateForm, TAtoCourseAddForm
+    PersonalInfoCreateForm, TAtoCourseAddForm, SkillsUpdateForm
 # from .forms import UserUpdateForm, PersonalInfoUpdateForm, UserCreateForm
 
 from django.core.exceptions import ObjectDoesNotExist
@@ -182,21 +182,29 @@ class CreateAcc(View):
 
     def post(self, request):
         u_form = UserCreateForm(request.POST)
+        # create_user_profile(request.POST)
         # instead of update, create new
         p_form = PersonalInfoCreateForm(request.POST)
         # instead of update, create new
 
         print("before validation")
-        if u_form.is_valid() and p_form.is_valid():
+        if u_form.is_valid(): # and p_form.is_valid()
             u_form.save()
-            p_form.save()
+            name = User.objects.get(username=request.POST['username'])
+            print(name)
+            p_form = PersonalInfoCreateForm(request.POST, instance=PersonalInfo.objects.filter(user=name).first())
+            if p_form.is_valid():
+                print('valid p_form')
+                p_form.save()
+            else:
+                print('invalid p_form')
             print("im about to redirect")
             messages.success(request, f'Your account has been Created!')
             return redirect('/dashboard/')
 
         context = {
             'u_form': u_form,
-            'p_form': p_form
+            # 'p_form': p_form
         }
         messages.error(request, f'Your account could not be Created')
         return render(request, "CreateAcc.html", context)
@@ -207,7 +215,8 @@ class AddTAtoCourse(View):
     def get(self, request):
         ta_form = TAtoCourseAddForm()
         context = {
-            'ta_form': ta_form
+            'ta_form': ta_form,
+            'users' : PersonalInfo.objects.filter(role=Role.TA)
         }
         return render(request, "addtatocourse.html", context)
 
@@ -227,8 +236,35 @@ class AddTAtoCourse(View):
 
 class PublicInfo(View):
     def get(self, request):
-
-        return render(request, "publicinformation.html")
+        usr_list = list(PersonalInfo.objects.all())
+        # users = []
+        # for i in usr_list:
+        #     users.append((i.user.username, i.role, i.phone, i.address, i.office_hours, i.skills))
+        #
+        return render(request, "publicinformation.html", {'usr_list': usr_list})
 
     def post(self, request):
         return render(request, "publicinformation.html")
+
+
+class SkillPage(View):
+    def get(self, request):
+        s_form = SkillsUpdateForm(instance=request.user.personalinfo)
+        context = {
+            's_form': s_form
+        }
+
+        return render(request, "skills.html", context)
+
+    def post(self, request):
+        s_form = SkillsUpdateForm(request.POST, instance=request.user.personalinfo)
+
+        if s_form.is_valid():
+            s_form.save()
+            messages.success(request, f'Skills updated')
+            return redirect('/dashboard/')
+        context = {
+            's_form': s_form
+        }
+        messages.success(request, f'Skills update failed')
+        return render(request, "skills.html", context)

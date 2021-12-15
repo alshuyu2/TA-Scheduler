@@ -21,7 +21,7 @@ class UserFactory:
         fields = {
             "name": str(p_info.user.username),
             "email": str(p_info.user.email),
-            "phone": int(p_info.phone),
+            "phone": str(p_info.phone),
             "address": str(p_info.address),
             "office_hours": str(p_info.office_hours),
             "courses": list(Class.objects.filter(instr_id=p_info.user).values_list()),
