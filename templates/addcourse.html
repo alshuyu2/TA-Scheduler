@@ -4,12 +4,14 @@
    <div class="content-section">
         <form method = "POST">
             {% csrf_token %}
+{#            <a href="{{request.META.HTTP_REFERER|escape}}">Back</a>#}
             <fieldset class="form-group">
                 <legend class="border-bottom mb-4">Course</legend>
                 {{ c_form|crispy }}
                 {{ l_form|crispy }}
             </fieldset>
             <div class="form-group">
+                <a class="btn btn-outline-danger" href="{{request.META.HTTP_REFERER|escape}}" role="button">Back</a>
                 <button class="btn btn-outline-info" type="submit">Add</button>
             </div>
         </form>

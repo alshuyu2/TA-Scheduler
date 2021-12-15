@@ -6,9 +6,31 @@
             {% csrf_token %}
             <legend class="border-bottom mb-4">Assign a TA to a course</legend>
             <fieldset class="form-group"> {# text-center ?#}
-                {{ ta_form|crispy }}
+{#                {{ ta_form|crispy }}#}
+{#                <div class="row table-sm">#}
+            <table class="table-sm table-bordered position-absolute" style="margin-top:10px; margin-left:250px;">
+                <thead class="thead-light">
+                    <tr>
+                      <th>#</th>
+                      <th>TA</th>
+                        <th>Skills</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  {% for i in users %}
+                      <tr>
+                      <th scope="row">{{ forloop.counter }}</th>
+                  <td> {{ i.user }}</td>
+                      <td> {{ i.skills }}</td>
+                      </tr>
+                  {% endfor %}
+                  </tbody>
+                </table>
+{#            </div>#}
+            {{ ta_form|crispy }}
             </fieldset>
             <div class="form-group">
+                <a class="btn btn-outline-danger" href="{{request.META.HTTP_REFERER|escape}}" role="button">Back</a>
                 <button class="btn btn-outline-info" type="submit">Add</button>
             </div>
         </form>

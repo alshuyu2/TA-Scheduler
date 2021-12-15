@@ -17,23 +17,21 @@ class Good_CreateAcc(TestCase):
         Form_info = {
             'username': 'vinny',
             'email': 'zack@uwm.edu',
-            'password': '1234',
-            'office_hours': "2 AM",
-            'phone': '414',
-            'role': '2',
+            'password1': 'adminadmi%aadn',
+            'password2': 'adminadmi%aadn',
+
         }
-        resp = self.Admin.post("/CreateAcc/", Form_info, follow=True)
+        self.Admin.post("/CreateAcc/", Form_info, follow=True)
         c_objects = list(User.objects.all())
-        print(len(c_objects))
         self.assertEqual(len(c_objects), 2)  # one for the created acc, + 1 for the Super Admin
 
-        # print(c_objects)
 
     def test_Succ_Create_two_users(self):
         Form_info = {
             'username': 'vinny',
             'email': 'zack@uwm.edu',
-            'password': '1234',
+            'password1': '1234&adminadmin',
+            'password2': '1234&adminadmin',
             'office_hours': "2 AM",
             'phone': '414',
             'role': '1',
@@ -41,7 +39,8 @@ class Good_CreateAcc(TestCase):
         Form_info2 = {
             'username': 'ben',
             'email': 'ben@uwm.edu',
-            'password': '123',
+            'password1': '1234&adminadmin',
+            'password2': '1234&adminadmin',
             'office_hours': "2 AM",
             'phone': '414',
             'role': '1',
@@ -58,7 +57,8 @@ class Good_CreateAcc(TestCase):
         Form_info = {
             'username': 'vinny',
             'email': 'zack@uwm.edu',
-            'password': '1234',
+            'password1': '1234&adminadmin',
+            'password2': '1234&adminadmin',
             'office_hours': "2 AM",
             'phone': '414',
             'role': '1',
@@ -66,7 +66,8 @@ class Good_CreateAcc(TestCase):
         Form_info2 = {
             'username': 'ben',
             'email': 'ben@uwm.edu',
-            'password': '123',
+            'password1': '1234&adminadmin',
+            'password2': '1234&adminadmin',
             'office_hours': "2 AM",
             'phone': '414',
             'role': '1',
@@ -74,7 +75,8 @@ class Good_CreateAcc(TestCase):
         Form_info3 = {
             'username': 'Jake',
             'email': 'ben@uwm.edu',
-            'password': '123',
+            'password1': '1234&adminadmin',
+            'password2': '1234&adminadmin',
             'office_hours': "2 AM",
             'phone': '414',
             'role': '1',
@@ -95,7 +97,8 @@ class Good_CreateAcc(TestCase):
              Form_info = {
                     'username': i,
                     'email': 'zack@uwm.edu',
-                    'password': '1234',
+                    'password1': '1234&adminadmin',
+            'password2': '1234&adminadmin',
                     'office_hours': "2 AM",
                     'phone': '414',
                     'role': '1',

@@ -1,4 +1,5 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from .models import PersonalInfo, Class, Lab, TAtoClass
 
@@ -50,24 +51,29 @@ class CourseCreateForm(forms.ModelForm):
         else:
             return self.cleaned_data
 
+    def __init__(self, *args, **kwargs):
+        super(CourseCreateForm, self).__init__(*args, **kwargs)
+        self.fields['instr_id'].queryset = User.objects.filter(personalinfo__role=Role.INSTRUCTOR)
+
 
 class LabCreateForm(forms.ModelForm):
     class Meta:
         model = Lab
-        fields = ['section', 'ta_name']
+        fields = ['section']
 
     def __init__(self, *args, **kwargs):
         super(LabCreateForm, self).__init__(*args, **kwargs)
         self.fields['section'].required = False
-        self.fields['ta_name'].required = False
+        # self.fields['ta_name'].required = False
+        # self.fields['ta_name'].queryset = User.objects.filter(personalinfo__role=Role.TA)
 
 
-class UserCreateForm(forms.ModelForm):
+class UserCreateForm(UserCreationForm):
     email = forms.EmailField()
 
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']
+        fields = ['username', 'email']
 
 
 class PersonalInfoCreateForm(forms.ModelForm):
@@ -77,6 +83,7 @@ class PersonalInfoCreateForm(forms.ModelForm):
 
 
 class TAtoCourseAddForm(forms.ModelForm):
+
     class Meta:
         model = TAtoClass
         fields = ['class_name', 'ta_name']
@@ -86,3 +93,9 @@ class TAtoCourseAddForm(forms.ModelForm):
         self.fields['ta_name'].queryset = User.objects.filter(personalinfo__role=Role.TA)
         # self.fields['class_name'].widget.attrs['style'] = 'width:400px; height:40px;'
         # self.fields['ta_name'].widget.attrs['style'] = 'width:400px; height:40px;'
+
+
+class SkillsUpdateForm(forms.ModelForm):
+    class Meta:
+        model = PersonalInfo
+        fields = ['skills']
