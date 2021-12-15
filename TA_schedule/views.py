@@ -59,8 +59,7 @@ class CourseAdd(View):
         c_form = CourseCreateForm(request.POST)
         l_form = LabCreateForm(request.POST)
 
-        # TODO added elif may be wrong
-        # Option 1: both froms are valid and we need to make classtolab object
+        # Option 1: both forms are valid and we need to make classtolab object
         # Option 2: c_form is valid and we only create a course. no lab is created, so no CTL needed
         if c_form.is_valid() and l_form.is_valid():
             c_form.save()

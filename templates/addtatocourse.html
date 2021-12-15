@@ -30,6 +30,7 @@
             {{ ta_form|crispy }}
             </fieldset>
             <div class="form-group">
+                <a class="btn btn-outline-danger" href="{{request.META.HTTP_REFERER|escape}}" role="button">Back</a>
                 <button class="btn btn-outline-info" type="submit">Add</button>
             </div>
         </form>
