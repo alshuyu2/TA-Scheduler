@@ -8,7 +8,7 @@ from django.views import View
 from .UserFactory import UserFactory
 from .Lab import Lab
 from .forms import UserUpdateForm, PersonalInfoUpdateForm, CourseCreateForm, LabCreateForm, UserCreateForm, \
-    PersonalInfoCreateForm, TAtoCourseAddForm, SkillsUpdateForm
+    PersonalInfoCreateForm, TAtoCourseAddForm, SkillsUpdateForm, RemoveUserForm
 # from .forms import UserUpdateForm, PersonalInfoUpdateForm, UserCreateForm
 
 from django.core.exceptions import ObjectDoesNotExist
@@ -249,7 +249,7 @@ class CreateAcc(View):
             return redirect('/dashboard/')
         context = {
             'u_form': u_form,
-            # 'p_form': p_form
+            'p_form': p_form
         }
         messages.error(request, f'Your account could not be Created')
         return render(request, "CreateAcc.html", context)
@@ -321,3 +321,21 @@ class SkillPage(View):
         }
         messages.success(request, f'Skills update failed')
         return render(request, "skills.html", context)
+
+class deleteUser(View):
+    def get(self, request):
+        d_form=RemoveUserForm()
+        return render(request, "deleteAccount.html", {"d_form": d_form})
+
+    def post(self, request):
+        d_form=RemoveUserForm(request.POST)
+        if d_form.is_valid():
+            print("d_form is valid")
+            name = User.objects.get(username= d_form.cleaned_data.get('username'))
+            name.delete()
+            messages.success(request, f'The user has been deleted')
+            return redirect('/dashboard/')
+
+        print("d_form is invalid")
+        messages.error(request, f'There was an issue with deleting a user')
+        return render(request, "deleteAccount.html", {"d_form": d_form})

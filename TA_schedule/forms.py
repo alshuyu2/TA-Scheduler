@@ -141,3 +141,34 @@ class SkillsUpdateForm(forms.ModelForm):
     class Meta:
         model = PersonalInfo
         fields = ['skills']
+
+
+class RemoveUserForm(forms.ModelForm):
+    username = forms.ModelChoiceField(queryset=User.objects.all())
+    class Meta:
+        model = User
+        # username = forms.ModelChoiceField(queryset=User.objects.all())
+        fields = ['username']
+
+        # widget=forms.Select(choices= User.objects.all())
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        name = cleaned_data.get('username')
+
+        try:
+            users = User.objects.get(username=name)
+        except User.DoesNotExist:
+            users = None
+
+        if not users:
+            msg = u"Username : %s doesn't exists." % name
+            self._errors['username'] = self.error_class([msg])
+            del cleaned_data['username']
+            return cleaned_data
+        else:
+            return self.cleaned_data
+    # def __init__(self, *args, **kwargs):
+        # super(RemoveUserForm, self).__init__(*args, **kwargs)
+        # u_list = list(User.objects.all())
+        # self.fields['username'].queryset = forms.Select(choices= u_list)
+        # widget=forms.Select(choices= User.objects.all())
