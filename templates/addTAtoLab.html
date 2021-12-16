@@ -10,13 +10,13 @@
             {% for i in TAs %}
 {#                <option value="{{  i.TAtoClass_id.ta_name}}">{{ i.TAtoClass_id.ta_name }}</option>#}
 {#                 <option value="{{  i.PersonalInfo_id.role}}">{{ i.PersonalInfo_id.role }}</option>}#}
-                <option value="{{  i.TAtoClass_id.ta_name}}">{{ i.TAtoClass_id.ta_name}}</option>
+                <option value="{{  i.user.id}}">{{ i.user}}</option>
             {% endfor %}
 
             </select><br>
             {% for i in labs %}
-            <input type="checkbox" id="labCheckbox" name="labCheckbox" value="i.lab_id.name">
-            <label for="labCheckbox">{{  i.lab_id.section}}</label>
+            <input type="checkbox" id="labCheckbox" name="labCheckbox" value= {{ i.lab_id }} >
+            <label for="option{{i.lab_id}}"><b>{{  i.lab_id}}</b></label><br/>
             {% endfor %}
             <div class="form-group">
                 <button class="btn btn-outline-info" type="submit">Add</button>

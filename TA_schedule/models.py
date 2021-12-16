@@ -11,8 +11,8 @@ class PersonalInfo(models.Model):
     office_hours = models.CharField(max_length=50, default='')
     skills = models.CharField(max_length=250, default='')
 
-    def __str__(self):
-        return self.user.username
+    # def __str__(self):
+    #     return self.user.username
 
 
 class Class(models.Model):
