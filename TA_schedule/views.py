@@ -87,14 +87,11 @@ class Courses(View):
 
     def get(self, request):
 
-        # TODO this will have to be done in every method or in init possibly.
+        # this will have to be done in every method or in init possibly.
         #  all info will be in usr object now
-        # fact = UserFactory()
         usr = self.fact.get_user(request.user.personalinfo)
-        # print(type(usr), usr.getName(), usr.get_courses(), usr.get_labs())
 
         course_lab_list = []
-        # course_list = list(Class.objects.all())
         for i in usr.get_courses():
             class_lab_list = list(ClassToLab.objects.filter(class_id=i))
             lab_list = []
@@ -214,7 +211,7 @@ class AddTAtoCourse(View):
         ta_form = TAtoCourseAddForm()
         context = {
             'ta_form': ta_form,
-            'users' : PersonalInfo.objects.filter(role=Role.TA)
+            'users': PersonalInfo.objects.filter(role=Role.TA)
         }
         return render(request, "addtatocourse.html", context)
 
@@ -226,7 +223,8 @@ class AddTAtoCourse(View):
             messages.success(request, f'The ta has been added to the course')
             return redirect('/courses/')
         context = {
-            'ta_form': ta_form
+            'ta_form': ta_form,
+            'users': PersonalInfo.objects.filter(role=Role.TA)
         }
         messages.error(request, f'The ta was not able to be added to the course')
         return render(request, "addtatocourse.html", context)

@@ -88,6 +88,25 @@ class TAtoCourseAddForm(forms.ModelForm):
         model = TAtoClass
         fields = ['class_name', 'ta_name']
 
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        c_name = cleaned_data.get('class_name')
+        ta_name = cleaned_data.get('ta_name')
+        try:
+            add = TAtoClass.objects.get(class_name=c_name, ta_name=ta_name)
+        except TAtoClass.DoesNotExist:
+            add = None
+
+        if add:
+            msg = f" {ta_name} already belongs to {c_name}."# % ta_name, c_name
+            self._errors['ta_name'] = self.error_class([msg])
+            self._errors['class_name'] = self.error_class([''])
+            del cleaned_data['ta_name']
+            del cleaned_data['class_name']
+            return cleaned_data
+        else:
+            return self.cleaned_data
+
     def __init__(self, *args, **kwargs):
         super(TAtoCourseAddForm, self).__init__(*args, **kwargs)
         self.fields['ta_name'].queryset = User.objects.filter(personalinfo__role=Role.TA)
