@@ -67,6 +67,23 @@ class LabCreateForm(forms.ModelForm):
         # self.fields['ta_name'].required = False
         # self.fields['ta_name'].queryset = User.objects.filter(personalinfo__role=Role.TA)
 
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        name = cleaned_data.get('section')
+
+        # try:
+        #     lab = Lab.objects.get(section=name)
+        # except Lab.DoesNotExist:
+        #     lab = None
+
+        if name == '':
+            msg = 'Invalid lab form'
+            self._errors['section'] = self.error_class([msg])
+            del cleaned_data['section']
+            return cleaned_data
+        else:
+            return self.cleaned_data
+
 
 class UserCreateForm(UserCreationForm):
     email = forms.EmailField()
