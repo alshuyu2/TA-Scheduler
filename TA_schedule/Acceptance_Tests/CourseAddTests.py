@@ -1,7 +1,8 @@
 from django.test import TestCase, Client
 
 from TA_schedule.forms import CourseCreateForm, LabCreateForm
-from TA_schedule.models import User, Lab, Class, ClassToLab
+from TA_schedule.models import User, Lab, Class, ClassToLab, PersonalInfo
+from TA_schedule.roles import Role
 
 
 class CourseFormTests(TestCase):
@@ -14,13 +15,22 @@ class CourseFormTests(TestCase):
         self.u = User.objects.create_user(**self.info)
         self.c_info = {
             'name': 'Bio101',
-            'instr_id': self.u,
+            'instr_id': '1',
         }
         self.l_info = {
             'section': 'lab 901',
-            'ta_name': self.u
         }
         self.user.login(**self.info)
+        p = PersonalInfo.objects.get(user__username=self.info['username'])
+        p.role = Role.INSTRUCTOR
+        p.save()
+
+    def test_course_form_invalid_role(self):
+        p = PersonalInfo.objects.get(user__username=self.info['username'])
+        p.role = Role.ADMIN
+        p.save()
+        c_form = CourseCreateForm(data=self.c_info)
+        self.assertFalse(c_form.is_valid())
 
     def test_course_form(self):
         c_form = CourseCreateForm(data=self.c_info)
@@ -48,7 +58,6 @@ class LabFormTests(TestCase):
         # }
         self.l_info = {
             'section': 'lab 901',
-            'ta_name': self.u
         }
         self.user.login(**self.info)
 
@@ -80,14 +89,17 @@ class CourseAdd(TestCase):
         self.form_info = {
             'name': 'Bio101',
             'instr_id': '1',
-            'section': 'lab 901',
-            'ta_name': '1'
+            'section': 'lab 901'
         }
         self.u = User.objects.create_user(**self.info)
         self.user.login(**self.info)
+        p = PersonalInfo.objects.get(user__username=self.info['username'])
+        p.role = Role.INSTRUCTOR
+        p.save()
 
     def test_add_new_course_class(self):
-        self.user.post('/addcourse/', self.form_info, follow=True)
+        r = self.user.post('/addcourse/', self.form_info, follow=True)
+        print(r, r.request)
         c_objects = list(Class.objects.all())
         self.assertEqual(len(c_objects), 1)
 
