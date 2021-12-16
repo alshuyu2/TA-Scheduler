@@ -62,6 +62,7 @@ class CourseAdd(View):
         # Option 1: both forms are valid and we need to make classtolab object
         # Option 2: c_form is valid and we only create a course. no lab is created, so no CTL needed
         if c_form.is_valid() and l_form.is_valid():
+            print('both valid')
             c_form.save()
             l_form.save()
             # print('about to redirect')
@@ -71,6 +72,7 @@ class CourseAdd(View):
             messages.success(request, f'Your class and lab has been added!')
             return redirect('/courses/')
         elif c_form.is_valid():
+            print('only class valid')
             c_form.save()
             messages.success(request, f'Your class has been added!')
             return redirect('/courses/')
@@ -112,7 +114,9 @@ class Courses(View):
 class Labs(View):
 
     def get(self, request):
-        allCourses = ClassToLab.objects.all();
+        allCourses = ClassToLab.objects.all()
+        print('lab get')
+        # allCourses = Class.objects.all()
         return render(request, "labs.html", {"courses": allCourses})
 
     def post(self, request):
@@ -142,11 +146,19 @@ class getLabTA(View):
             lab= Lab.objects.get(section=i)
             lab.ta_name = tatoLab.user
             lab.save()
+            try:
+                c_name = ClassToLab.objects.get(lab_id=lab)
+                TAtoClass.objects.get(ta_name=tatoLab.user, class_name=c_name.class_id)
+            except TAtoClass.DoesNotExist:
+                print('creating tatoclass obj')
+                TAtoClass.objects.create(ta_name=tatoLab.user, class_name=c_name.class_id)
         return render(request, "labs.html", {"courses": allCourses})
 
 class addLabs(View):
     def get(self, request):
-        allCourses = ClassToLab.objects.all();
+        # allCourses = ClassToLab.objects.all()
+        allCourses = Class.objects.all()
+
         allTA= PersonalInfo.objects.filter(role=3);
         # ta_to_class = list(TAtoClass.objects.filter(class_name=i, ta_name__personalinfo__role=Role.TA))
         # class_add = Class.objects.get(name=request.POST["course"])
@@ -154,10 +166,14 @@ class addLabs(View):
         # # allTA = PersonalInfo.objects.all();
         # allTAs = PersonalInfo.objects.all();
         # allTAa = TAtoClass.objects.all();
+
         return render(request, "addLabs.html", {"courses": allCourses})
 
     def post(self, request):
-        allCourses = ClassToLab.objects.all();
+        # allCourses = ClassToLab.objects.all()
+
+        allCourses = Class.objects.all()
+
         class_add = Class.objects.get(name=request.POST["course"])
         ta_to_class = list(TAtoClass.objects.filter(class_name=class_add, ta_name__personalinfo__role=Role.TA))
         # class_add = Class.objects.get(name=request.POST["course"])
@@ -167,7 +183,8 @@ class addLabs(View):
         new_Lab.save()
         new_ClasstoLab = ClassToLab(lab_id=new_Lab, class_id=class_add)
         new_ClasstoLab.save()
-        return render(request, "labs.html", {"courses": allCourses, "TAs": ta_to_class})
+        return redirect('/labs/')
+        # return render(request, "labs.html", {"courses": allCourses, "TAs": ta_to_class})
 
 
 class Profile(View):

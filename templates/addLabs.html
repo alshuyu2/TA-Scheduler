@@ -21,7 +21,7 @@
                 <p id="usernameP">Select Class:</p>
                 <select name="course" id="coursedropdown">
                 {% for i in courses %}
-                <option value="{{  i.class_id.name}}">{{ i.class_id.name }}</option>
+                <option value="{{  i.name}}">{{ i.name }}</option>
                 {% endfor %}
                 </select>
 {#            </form>#}
