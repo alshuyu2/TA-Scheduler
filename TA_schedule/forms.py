@@ -26,7 +26,7 @@ class UserUpdateForm(forms.ModelForm):
 class PersonalInfoUpdateForm(forms.ModelForm):
     class Meta:
         model = PersonalInfo
-        fields = ['office_hours', 'phone']
+        fields = ['office_hours', 'address', 'phone']
 
 
 class CourseCreateForm(forms.ModelForm):
@@ -79,7 +79,13 @@ class UserCreateForm(UserCreationForm):
 class PersonalInfoCreateForm(forms.ModelForm):
     class Meta:
         model = PersonalInfo
-        fields = ['office_hours', 'phone', 'role']
+        fields = ['role', 'office_hours', 'phone', 'address']
+
+    def __init__(self, *args, **kwargs):
+        super(PersonalInfoCreateForm, self).__init__(*args, **kwargs)
+        self.fields['office_hours'].required = False
+        self.fields['phone'].required = False
+        self.fields['address'].required = False
 
 
 class TAtoCourseAddForm(forms.ModelForm):
@@ -87,6 +93,25 @@ class TAtoCourseAddForm(forms.ModelForm):
     class Meta:
         model = TAtoClass
         fields = ['class_name', 'ta_name']
+
+    def clean(self):
+        cleaned_data = self.cleaned_data
+        c_name = cleaned_data.get('class_name')
+        ta_name = cleaned_data.get('ta_name')
+        try:
+            add = TAtoClass.objects.get(class_name=c_name, ta_name=ta_name)
+        except TAtoClass.DoesNotExist:
+            add = None
+
+        if add:
+            msg = f" {ta_name} already belongs to {c_name}."# % ta_name, c_name
+            self._errors['ta_name'] = self.error_class([msg])
+            self._errors['class_name'] = self.error_class([''])
+            del cleaned_data['ta_name']
+            del cleaned_data['class_name']
+            return cleaned_data
+        else:
+            return self.cleaned_data
 
     def __init__(self, *args, **kwargs):
         super(TAtoCourseAddForm, self).__init__(*args, **kwargs)

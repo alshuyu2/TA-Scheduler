@@ -20,7 +20,7 @@ class Class(models.Model):
     instr_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name} - {self.instr_id}'
 
 
 class TAtoClass(models.Model):

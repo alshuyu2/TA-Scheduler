@@ -34,6 +34,7 @@ class EditInfo(TestCase):
             'password': 'pw123',
             'office_hours': '11-12 monday-friday',
             'phone': '4149999999',
+            'address': 'UWM street'
         }
         self.user.post('/profile/', new_info, follow=True)
         db_obj = list(User.objects.all().values()).pop()
@@ -48,6 +49,7 @@ class EditInfo(TestCase):
             'password': 'pw123',
             'office_hours': '11-12 monday-friday',
             'phone': '4149999999',
+            'address': 'UWM street'
         }
         greg = {
             'username': 'Greg',
@@ -66,6 +68,7 @@ class EditInfo(TestCase):
             'password': 'pw123',
             'office_hours': '11-12 monday-friday',
             'phone': '4149999999',
+            'address': 'UWM street'
         }
         self.user.post('/profile/', new_info, follow=True)
         db_obj = list(User.objects.all().values()).pop()
@@ -80,6 +83,7 @@ class EditInfo(TestCase):
             'password': 'pw123',
             'office_hours': '11-12 monday-friday',
             'phone': '4149999999',
+            'address': 'UWM street'
         }
         response = self.user.post('/profile/', new_info, follow=True)
         # db_obj = list(User.objects.all().values()).pop()
@@ -93,6 +97,7 @@ class EditInfo(TestCase):
             'password': 'pw123',
             'office_hours': '8-9 T/TH',
             'phone': '4149999999',
+            'address': 'UWM street'
         }
         self.user.post('/profile/', new_info, follow=True)
         db_obj = list(PersonalInfo.objects.all().values()).pop()
@@ -106,6 +111,7 @@ class EditInfo(TestCase):
             'password': 'pw123',
             'office_hours': '11-12 monday-friday',
             'phone': '414111222',
+            'address': 'UWM street'
         }
 
         self.user.post('/profile/', new_info, follow=True)
@@ -121,6 +127,7 @@ class EditInfo(TestCase):
             'password': 'asdf',
             'office_hours': 'Never',
             'phone': '9876543210',
+            'address': 'UWM street'
         }
 
         response = self.user.post('/profile/', new_info, follow=True)

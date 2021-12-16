@@ -24,12 +24,12 @@ class UserFactory:
             "phone": str(p_info.phone),
             "address": str(p_info.address),
             "office_hours": str(p_info.office_hours),
-            "courses": list(Class.objects.filter(instr_id=p_info.user).values_list()),
-            "labs": list(Lab.objects.filter(ta_name=p_info.user).values_list())
+            "courses": list(Class.objects.all()),  # list(Class.objects.filter(instr_id=p_info.user)),
+            "labs": list(Lab.objects.all())  # list(Lab.objects.filter(classtolab__class_id__instr_id=p_info.user))
         }
-        if p_info.role == Role.ADMIN:
-            fields['courses'] = list(Class.objects.all())
-            fields['labs'] = list(Lab.objects.all())
+        if p_info.role == Role.TA:
+            fields['courses'] = list(Class.objects.filter(tatoclass__ta_name=p_info.user))
+            fields['labs'] = list(Lab.objects.filter(ta_name=p_info.user))
         # ** unpacks dict
         # * unpacks list
         return self._creator[p_info.role](**fields)

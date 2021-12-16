@@ -87,15 +87,13 @@ class Courses(View):
 
     def get(self, request):
 
-        # TODO this will have to be done in every method or in init possibly.
+        # this will have to be done in every method or in init possibly.
         #  all info will be in usr object now
-        # fact = UserFactory()
         usr = self.fact.get_user(request.user.personalinfo)
-        # print(type(usr), usr.getName(), usr.get_courses(), usr.get_labs())
-
+        # print(usr.get_courses())
         course_lab_list = []
-        # course_list = list(Class.objects.all())
         for i in usr.get_courses():
+            # print(type(i))
             class_lab_list = list(ClassToLab.objects.filter(class_id=i))
             lab_list = []
             ta_to_class = list(TAtoClass.objects.filter(class_name=i, ta_name__personalinfo__role=Role.TA))
@@ -246,7 +244,7 @@ class AddTAtoCourse(View):
         ta_form = TAtoCourseAddForm()
         context = {
             'ta_form': ta_form,
-            'users' : PersonalInfo.objects.filter(role=Role.TA)
+            'users': PersonalInfo.objects.filter(role=Role.TA)
         }
         return render(request, "addtatocourse.html", context)
 
@@ -258,7 +256,8 @@ class AddTAtoCourse(View):
             messages.success(request, f'The ta has been added to the course')
             return redirect('/courses/')
         context = {
-            'ta_form': ta_form
+            'ta_form': ta_form,
+            'users': PersonalInfo.objects.filter(role=Role.TA)
         }
         messages.error(request, f'The ta was not able to be added to the course')
         return render(request, "addtatocourse.html", context)
@@ -267,11 +266,18 @@ class AddTAtoCourse(View):
 class PublicInfo(View):
     def get(self, request):
         usr_list = list(PersonalInfo.objects.all())
-        # users = []
-        # for i in usr_list:
-        #     users.append((i.user.username, i.role, i.phone, i.address, i.office_hours, i.skills))
-        #
-        return render(request, "publicinformation.html", {'usr_list': usr_list})
+        users = []
+        rev_r = {
+            '1': 'Admin',
+            '2': 'Instructor',
+            '3': 'TA'
+        }
+        # only way I can figure out how to make role not be a str
+        for i in usr_list:
+            # print(i.role)
+            users.append((i.user.username, rev_r[i.role], i.phone, i.address, i.office_hours, i.skills))
+
+        return render(request, "publicinformation.html", {'usr_list': users})
 
     def post(self, request):
         return render(request, "publicinformation.html")
