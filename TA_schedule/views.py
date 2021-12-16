@@ -90,9 +90,10 @@ class Courses(View):
         # this will have to be done in every method or in init possibly.
         #  all info will be in usr object now
         usr = self.fact.get_user(request.user.personalinfo)
-
+        # print(usr.get_courses())
         course_lab_list = []
         for i in usr.get_courses():
+            # print(type(i))
             class_lab_list = list(ClassToLab.objects.filter(class_id=i))
             lab_list = []
             ta_to_class = list(TAtoClass.objects.filter(class_name=i, ta_name__personalinfo__role=Role.TA))
