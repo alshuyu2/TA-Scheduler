@@ -6,7 +6,7 @@
             {% csrf_token %}
             <legend class="border-bottom mb-4">Public Info</legend>
             <fieldset class="form-group"> {# text-center ?#}
-            <h4>Roles: (Admin = 1, Instructor = 2, TA = 3)</h4>
+{#            <h4>Roles: (Admin = 1, Instructor = 2, TA = 3)</h4>#}
                 <div class="row justify-content-center">
             <table class="table">
                 <thead class="thead-light">
@@ -20,14 +20,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                  {% for i in usr_list %}
+{#                  {% for i in usr_list %}#}
+                    {% for u, r, p, a, o ,s in usr_list %}
                       <tr>
-                        <td>{{ i.user.username }}</td>
-                          <td> {{ i.role }}</td>
-                          <td> {{ i.phone }}</td>
-                        <td> {{ i.address }}</td>
-                        <td> {{ i.office_hours }}</td>
-                        <td> {{ i.skills }}</td>
+                      <td>{{ u }}</td>
+                          <td> {{ r }}</td>
+                          <td> {{ p }}</td>
+                        <td> {{ a }}</td>
+                        <td> {{ o }}</td>
+                        <td> {{ s }}</td>
+{#                        <td>{{ i.user.username }}</td>#}
+{#                          <td> {{ i.role }}</td>#}
+{#                          <td> {{ i.phone }}</td>#}
+{#                        <td> {{ i.address }}</td>#}
+{#                        <td> {{ i.office_hours }}</td>#}
+{#                        <td> {{ i.skills }}</td>#}
                       </tr>
                     {% endfor %}
                   </tbody>

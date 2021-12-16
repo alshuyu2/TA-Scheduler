@@ -233,11 +233,18 @@ class AddTAtoCourse(View):
 class PublicInfo(View):
     def get(self, request):
         usr_list = list(PersonalInfo.objects.all())
-        # users = []
-        # for i in usr_list:
-        #     users.append((i.user.username, i.role, i.phone, i.address, i.office_hours, i.skills))
-        #
-        return render(request, "publicinformation.html", {'usr_list': usr_list})
+        users = []
+        rev_r = {
+            '1': 'Admin',
+            '2': 'Instructor',
+            '3': 'TA'
+        }
+        # only way I can figure out how to make role not be a str
+        for i in usr_list:
+            # print(i.role)
+            users.append((i.user.username, rev_r[i.role], i.phone, i.address, i.office_hours, i.skills))
+
+        return render(request, "publicinformation.html", {'usr_list': users})
 
     def post(self, request):
         return render(request, "publicinformation.html")

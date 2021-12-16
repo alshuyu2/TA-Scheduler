@@ -26,7 +26,7 @@ class UserUpdateForm(forms.ModelForm):
 class PersonalInfoUpdateForm(forms.ModelForm):
     class Meta:
         model = PersonalInfo
-        fields = ['office_hours', 'phone']
+        fields = ['office_hours', 'address', 'phone']
 
 
 class CourseCreateForm(forms.ModelForm):
@@ -79,7 +79,13 @@ class UserCreateForm(UserCreationForm):
 class PersonalInfoCreateForm(forms.ModelForm):
     class Meta:
         model = PersonalInfo
-        fields = ['office_hours', 'phone', 'role']
+        fields = ['role', 'office_hours', 'phone', 'address']
+
+    def __init__(self, *args, **kwargs):
+        super(PersonalInfoCreateForm, self).__init__(*args, **kwargs)
+        self.fields['office_hours'].required = False
+        self.fields['phone'].required = False
+        self.fields['address'].required = False
 
 
 class TAtoCourseAddForm(forms.ModelForm):
