@@ -120,24 +120,56 @@ class Labs(View):
     def post(self, request):
         return render(request, "labs.html")
 
+class getLabTA(View):
+    def get(self, request):
+        allLabs = ClassToLab.objects.all()
+        # allLabs= Lab.objects.all()
+        allTA = list(PersonalInfo.objects.filter(role=Role.TA))
+        print(allTA)
+        return render(request, "addTAtoLab.html", {"labs": allLabs,"TAs": allTA})
+
+    def post(self, request):
+        allCourses = ClassToLab.objects.all();
+        tatoLab = PersonalInfo.objects.get(user=request.POST["TAa"])
+        labSections= request.POST.getlist('labCheckbox')
+        print(labSections)
+
+        # labSection = list(Lab.objects.filter(section=labSections))
+        # print(labSection)
+        # ta_to_class = list(TAtoClass.objects.filter(class_name=class_add, ta_name__personalinfo__role=Role.TA))
+        # # ta_to_class = list(TAtoClass.objects.filter(class_name=class_add, ta_name__personalinfo__role=Role.TA))
+        # new_Lab = Lab(section=request.POST["labCheckbox"], ta_name=ta_to_class)
+        # new_Lab.save()
+        for i in labSections:
+            lab= Lab.objects.get(section=i)
+            lab.ta_name = tatoLab.user
+            lab.save()
+        return render(request, "labs.html", {"courses": allCourses})
 
 class addLabs(View):
     def get(self, request):
         allCourses = ClassToLab.objects.all();
         allTA= PersonalInfo.objects.filter(role=3);
+        # ta_to_class = list(TAtoClass.objects.filter(class_name=i, ta_name__personalinfo__role=Role.TA))
+        # class_add = Class.objects.get(name=request.POST["course"])
+        # ta_to_class = list(TAtoClass.objects.filter(class_name=class_add, ta_name__personalinfo__role=Role.TA))
         # # allTA = PersonalInfo.objects.all();
         # allTAs = PersonalInfo.objects.all();
         # allTAa = TAtoClass.objects.all();
-        return render(request, "addLabs.html", {"courses": allCourses, "TAs" : allTA})
+        return render(request, "addLabs.html", {"courses": allCourses})
 
     def post(self, request):
+        allCourses = ClassToLab.objects.all();
         class_add = Class.objects.get(name=request.POST["course"])
-        new_Lab = Lab(section=request.POST["labName"], ta_name= request.POST["TAa"])
+        ta_to_class = list(TAtoClass.objects.filter(class_name=class_add, ta_name__personalinfo__role=Role.TA))
+        # class_add = Class.objects.get(name=request.POST["course"])
+        # ta_to_class = list(TAtoClass.objects.filter(class_name=class_add, ta_name__personalinfo__role=Role.TA))
+        # taSelect=  request.POST["TAa"]
+        new_Lab = Lab(section=request.POST["labName"])
         new_Lab.save()
         new_ClasstoLab = ClassToLab(lab_id=new_Lab, class_id=class_add)
         new_ClasstoLab.save()
-        allCourses = ClassToLab.objects.all();
-        return render(request, "labs.html", {"courses": allCourses})
+        return render(request, "labs.html", {"courses": allCourses, "TAs": ta_to_class})
 
 
 class Profile(View):
