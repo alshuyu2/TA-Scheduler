@@ -25,12 +25,13 @@ class AddLabToCourse(TestCase):
         }
         self.u = User.objects.create_user(**self.info)
         self.user.login(**self.info)
-        #check create course and create TA steal from other acceptance tests
+
         #assign the TA to the course
 
     def test_valid_course(self):
-            c_form = CourseCreateForm(data=self.c_info)
-            self.assertTrue(c_form.is_valid())
+        # check create course and create TA steal from other acceptance tests
+        c_form = CourseCreateForm(data=self.c_info)
+        self.assertTrue(c_form.is_valid())
 
     def test_add_new_lab(self):
         self.user.post('/addLabs/', self.form_info, follow=True)
