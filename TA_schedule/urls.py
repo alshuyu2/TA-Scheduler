@@ -19,7 +19,7 @@ from django.urls import path
 from django.contrib.auth import views as auth_views
 
 from TA_schedule.views import Home, DashBoard, Courses, Profile, CourseAdd, CreateAcc, Labs, addLabs,\
-    AddTAtoCourse, PublicInfo, SkillPage, getLabTA
+    AddTAtoCourse, PublicInfo, SkillPage, getLabTA, deleteUser
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -37,4 +37,5 @@ urlpatterns = [
     path('publicinformation/', login_required(PublicInfo.as_view())),
     path('skills/', login_required(SkillPage.as_view())),
     path('getTA/', login_required(getLabTA.as_view())),
+    path('deleteAccount/', login_required(deleteUser.as_view())),
 ]
