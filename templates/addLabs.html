@@ -2,26 +2,37 @@
 {% load crispy_forms_tags %}
 {% block content %}
    <div class="content-section">
-        <form method = "POST" action="/addLabs/">
+{#        <form method = "post" action="/getTA/">#}
+{#            {% csrf_token %}#}
+{#                <p id="usernameP">Select Class:</p>#}
+{#                <select name="course" id="coursedropdown">#}
+{#                {% for i in courses %}#}
+{#                <option value="{{  i.class_id.name}}">{{ i.class_id.name }}</option>#}
+{#                {% endfor %}#}
+{#                </select>#}
+{#        </form>#}
+        <form method = "POST" >
             {% csrf_token %}
             <p id="labName">Lab Name:</p>
             <label for="labName" id="labName"></label>
             <input type="text" name="labName" id="labName"  required autofocus><br>
-            <p id="usernameP">Select Class:</p>
-            <select name="course" id="coursedropdown">
-            {% for i in courses %}
+{#            <form method = "post" action="/getTA/">#}
+{#            {% csrf_token %}#}
+                <p id="usernameP">Select Class:</p>
+                <select name="course" id="coursedropdown">
+                {% for i in courses %}
                 <option value="{{  i.class_id.name}}">{{ i.class_id.name }}</option>
-            {% endfor %}
-            </select>
-
-            <p id="usernameTA">Select TA:</p>
-            <select name="TAa" id="TAsDropdown">
-            {% for i in TAs %}
+                {% endfor %}
+                </select>
+{#            </form>#}
+{#            <p id="usernameTA">Select TA:</p>#}
+{#            <select name="TAa" id="TAsDropdown">#}
+{#            {% for i in TAs %}#}
 {#                <option value="{{  i.TAtoClass_id.ta_name}}">{{ i.TAtoClass_id.ta_name }}</option>#}
 {#                 <option value="{{  i.PersonalInfo_id.role}}">{{ i.PersonalInfo_id.role }}</option>}#}
-                <option value="{{  i.user}}">{{ i.user }}</option>
-            {% endfor %}
-            </select>
+{#                <option value="{{  i.user}}">{{ i.user }}</option>#}
+{#            {% endfor %}#}
+{#            </select>#}
 {#            <fieldset class="form-group">#}
 {#                <legend class="border-bottom mb-4">Create Labs</legend>#}
 {#                {{ c_form|crispy }}#}

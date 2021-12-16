@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+   <div class="content-section">
+        <form method = "POST" action="/getTA/">
+            {% csrf_token %}
+
+            <p id="usernameTA">Select TA:</p>
+            <select name="TAa" id="TAsDropdown">
+            {% for i in TAs %}
+{#                <option value="{{  i.TAtoClass_id.ta_name}}">{{ i.TAtoClass_id.ta_name }}</option>#}
+{#                 <option value="{{  i.PersonalInfo_id.role}}">{{ i.PersonalInfo_id.role }}</option>}#}
+                <option value="{{  i.TAtoClass_id.ta_name}}">{{ i.TAtoClass_id.ta_name}}</option>
+            {% endfor %}
+
+            </select><br>
+            {% for i in labs %}
+            <input type="checkbox" id="labCheckbox" name="labCheckbox" value="i.lab_id.name">
+            <label for="labCheckbox">{{  i.lab_id.section}}</label>
+            {% endfor %}
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Add</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
