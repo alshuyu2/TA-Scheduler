@@ -259,9 +259,9 @@ What I'm doing for next time:
 What I'm stuck on:
 
 -Vince:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Lots of changes to course addition and public info. also all acceptance tests for it
+What I'm doing for next time: Working on any bug fixes I can find and refine acceptance tests
+What I'm stuck on: Nothing
 
 -Moh:
 What I've done since last time:
@@ -291,9 +291,9 @@ What I'm doing for next time:
 What I'm stuck on:
 
 -Vince:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Fix small bugs, qol updates
+What I'm doing for next time: Work on powerpoint
+What I'm stuck on: Nothing
 
 -Moh:
 What I've done since last time:
