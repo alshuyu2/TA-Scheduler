@@ -11,8 +11,8 @@ class PersonalInfo(models.Model):
     office_hours = models.CharField(max_length=50, default='')
     skills = models.CharField(max_length=250, default='')
 
-    def __str__(self):
-        return self.user.username
+    # def __str__(self):
+    #     return self.user.username
 
 
 class Class(models.Model):
@@ -20,12 +20,12 @@ class Class(models.Model):
     instr_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name} - {self.instr_id}'
 
 
 class TAtoClass(models.Model):
-    class_name = models.ForeignKey(Class, on_delete=models.SET_NULL, null=True)
-    ta_name = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    class_name = models.ForeignKey(Class, on_delete=models.CASCADE, null=True)
+    ta_name = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return f'{self.ta_name} - {self.class_name} '
@@ -40,8 +40,8 @@ class Lab(models.Model):
 
 
 class ClassToLab(models.Model):
-    class_id = models.ForeignKey(Class, on_delete=models.SET_NULL, null=True)
-    lab_id = models.ForeignKey(Lab, on_delete=models.SET_NULL, null=True)
+    class_id = models.ForeignKey(Class, on_delete=models.CASCADE, null=True)
+    lab_id = models.ForeignKey(Lab, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return f'{self.class_id} - {self.lab_id}'

@@ -43,7 +43,8 @@ class LogInFirst(TestCase):
             'password': 'pw123'
         }
         # TODO will keep adding to this as we add more pages
-        self.pages = ['/dashboard/', '/courses/', '/profile/', '/addcourse/', '/CreateAcc/']
+        self.pages = ['/dashboard/', '/courses/', '/profile/', '/addcourse/', '/CreateAcc/', '/addLabs/',
+                      '/addtatocourse/', '/labs/', '/publicinformation/', '/skills/']
 
         User.objects.create_user(**self.info)
 
