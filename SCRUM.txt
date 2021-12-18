@@ -264,9 +264,9 @@ What I'm doing for next time: Working on any bug fixes I can find and refine acc
 What I'm stuck on: Nothing
 
 -Moh:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Implemented the deleting account PBI
+What I'm doing for next time: Working on Views diagram
+What I'm stuck on: Nothing so far
 
 -Zack:
 What I've done since last time: 
@@ -295,9 +295,9 @@ What I'm doing for next time: Work on powerpoint
 What I'm stuck on: Nothing
 
 -Moh:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Worked on views diagram.
+What I'm doing for next time: Reviewing and editing the PDF document.
+What I'm stuck on: Nothing so far
 
 -Zack:
 What I've done since last time: 
