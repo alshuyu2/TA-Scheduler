@@ -255,7 +255,7 @@ Tasks generated: Members will work on their assigned PBIs
 
 -Adriana:
 What I've done since last time: N/A
-What I'm doing for next time: N/A
+What I'm doing for next time: consulting with Abdullah on his TA to Lab class so I can implement the acceptance test
 What I'm stuck on: other school work taking up time (cs 337)
 
 -Vince:
@@ -265,12 +265,12 @@ What I'm stuck on: Nothing
 
 -Moh:
 What I've done since last time: N/A
-What I'm doing for next time: N/A
+What I'm doing for next time: work on delete account PBI
 What I'm stuck on: other school work taking up time (cs 337)
 
 -Zack:
 What I've done since last time: N/A
-What I'm doing for next time: N/A
+What I'm doing for next time: work on HTML for deleting account and acceptance Test
 What I'm stuck on: other school work taking up time (cs 337)
 
 -Abdullah:
