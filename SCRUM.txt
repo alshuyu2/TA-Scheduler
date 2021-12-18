@@ -269,9 +269,9 @@ What I'm doing for next time: Working on Views diagram
 What I'm stuck on: Nothing so far
 
 -Zack:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on: 
+What I've done since last time: Helped with HTML for deleting account and acceptance Test
+What I'm doing for next time: Working on finishing up Delete account PBI
+What I'm stuck on: Nothing
 
 -Abdullah:
 What I've done since last time: I completed adding TAs to lab
@@ -300,9 +300,9 @@ What I'm doing for next time: Reviewing and editing the PDF document.
 What I'm stuck on: Nothing so far
 
 -Zack:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on: 
+What I've done since last time: Finished delete account and its acceptance tests
+What I'm doing for next time: Working on the sprint 2 Doc now 
+What I'm stuck on: Nothing
 
 -Abdullah:
 What I've done since last time: Completed all the tasks incluing being able to add multiple lab to a TA at the same time.
