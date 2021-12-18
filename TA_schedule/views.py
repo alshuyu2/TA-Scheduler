@@ -134,7 +134,8 @@ class getLabTA(View):
         allCourses = ClassToLab.objects.all();
         tatoLab = PersonalInfo.objects.get(user=request.POST["TAa"])
         labSections= request.POST.getlist('labCheckbox')
-        print(labSections)
+        print(request.POST)
+
 
         # labSection = list(Lab.objects.filter(section=labSections))
         # print(labSection)
