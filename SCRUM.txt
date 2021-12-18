@@ -212,9 +212,9 @@ What I'm doing for next time: Working on the retrospective
 What I'm stuck on: Nothing right now.
 
 -Abdullah:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: I completed adding labs to classes, I stated with acceptace tests.
+What I'm doing for next time: d Finish the acceptance tests anPick up some PBIs for sprint 2.
+What I'm stuck on: Had some questions about acceptance tests.
 
 12/10/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
 Time: 4:30-4:45
@@ -243,26 +243,25 @@ What I'm doing for next time: Work on saving passwords for a new user
 What I'm stuck on: Nothing right now. 
 
 -Abdullah:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Adriana helped wit acceptance tests. I started working on sprint 2 PBI which is assigning TAs to labs.
+What I'm doing for next time: Complete Adding TA to lab.
+What I'm stuck on: nothing at the moment.
 
 12/14/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
- **********************************DELETE THIS LINE after copy and paste - *Copy and paste this template for the next meeting before filling in for an easier life
-Time: 
-Attendance:
+Time: 4:00-4:20
+Attendance:All
 Tasks completed:
-Tasks generated:
+Tasks generated:AddLabtoCourse acceptance tests reassigned to Adriana
 
 -Adriana:
-What I've done since last time:
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: started fixing add lab to course acceptance tests
+What I'm doing for next time: implement ta to class acceptance tests after Abdullah is finished implemening the class
+What I'm stuck on: nothing currently
 
 -Vince:
-What I've done since last time: 
-What I'm doing for next time:
-What I'm stuck on:
+What I've done since last time: Lots of changes to course addition and public info. also all acceptance tests for it
+What I'm doing for next time: Working on any bug fixes I can find and refine acceptance tests
+What I'm stuck on: Nothing
 
 -Moh:
 What I've done since last time:
@@ -275,7 +274,39 @@ What I'm doing for next time:
 What I'm stuck on: 
 
 -Abdullah:
-What I've done since last time: 
+What I've done since last time: I completed adding TAs to lab
+What I'm doing for next time: Being able to add multiple lab to one TA at the same time.
+What I'm stuck on: Nothing at the moment.
+
+12/17/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Time: 4:30-4:50
+Attendance: All
+Tasks completed: Finished our TA app and Sprint 2 pdf summary
+Tasks generated: N/A
+
+-Adriana:
+What I've done since last time:finished all acceptance tests and helped make sprint2 pdf
+What I'm doing for next time:N/A
+What I'm stuck on:nothing
+
+-Vince:
+What I've done since last time: Fix small bugs, qol updates
+What I'm doing for next time: Work on powerpoint
+What I'm stuck on: Nothing
+
+-Moh:
+What I've done since last time:
 What I'm doing for next time:
 What I'm stuck on:
+
+-Zack:
+What I've done since last time: 
+What I'm doing for next time:
+What I'm stuck on: 
+
+-Abdullah:
+What I've done since last time: Completed all the tasks incluing being able to add multiple lab to a TA at the same time.
+What I'm doing for next time: Testing with everything on making sure everyting wroks well.
+What I'm stuck on: Nothing.
+
 

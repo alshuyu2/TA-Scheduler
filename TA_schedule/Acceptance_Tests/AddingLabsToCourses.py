@@ -9,7 +9,7 @@ class ClassToLabTests(TestCase):
 
         self.user = Client()
         self.info = {'username': 'Zack', 'password': 'pw123'}
-
+        
         self.u = User.objects.create_user(**self.info)
         self.p_info = PersonalInfo.objects.get(user__username=self.info['username'])
         self.p_info.role = Role.INSTRUCTOR
@@ -54,3 +54,4 @@ class ClassToLabTests(TestCase):
         self.user.post("/addLabs/", context, follow=True)
         lab_objs1 = Lab.objects.filter(section="111")
         self.assertEqual(lab_objs1.count(), 0)
+
