@@ -250,7 +250,7 @@ What I'm stuck on: nothing at the moment.
 12/12/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
 Time: 11:30-11:45
 Attendance: All
-Tasks completed: Assigned PBIs
+Tasks completed: Assigned PBIs, skills PBI completed
 Tasks generated: Members will work on their assigned PBIs
 
 -Adriana:
@@ -259,9 +259,9 @@ What I'm doing for next time: N/A
 What I'm stuck on: other school work taking up time (cs 337)
 
 -Vince:
-What I've done since last time: 
-What I'm doing for next time: 
-What I'm stuck on: 
+What I've done since last time: Implemented the skills assinging PBI for tas
+What I'm doing for next time: course addition and public info implementation  
+What I'm stuck on: Nothing
 
 -Moh:
 What I've done since last time: N/A
