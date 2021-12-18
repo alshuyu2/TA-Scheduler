@@ -247,10 +247,41 @@ What I've done since last time: Adriana helped wit acceptance tests. I started w
 What I'm doing for next time: Complete Adding TA to lab.
 What I'm stuck on: nothing at the moment.
 
+12/12/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Time: 11:30-11:45
+Attendance: All
+Tasks completed: Assigned PBIs
+Tasks generated: Members will work on their assigned PBIs
+
+-Adriana:
+What I've done since last time: N/A
+What I'm doing for next time: N/A
+What I'm stuck on: other school work taking up time (cs 337)
+
+-Vince:
+What I've done since last time: 
+What I'm doing for next time: 
+What I'm stuck on: 
+
+-Moh:
+What I've done since last time: N/A
+What I'm doing for next time: N/A
+What I'm stuck on: other school work taking up time (cs 337)
+
+-Zack:
+What I've done since last time: N/A
+What I'm doing for next time: N/A
+What I'm stuck on: other school work taking up time (cs 337)
+
+-Abdullah:
+What I've done since last time: 
+What I'm doing for next time: 
+What I'm stuck on: 
+
 12/14/21-----------------------------------------------------------------------------------------------------------------------------------------------------------
 Time: 4:00-4:20
 Attendance:All
-Tasks completed:
+Tasks completed: 
 Tasks generated:AddLabtoCourse acceptance tests reassigned to Adriana
 
 -Adriana:
